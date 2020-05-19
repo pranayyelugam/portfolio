@@ -21,22 +21,19 @@ function App() {
           <div className="site-content">
             <div className="nav-menu"><Header /></div>
             <Switch>
-              <Route path="/blog">
+              <Route path="/portfolio/blog">
                 <BlogComponent />
               </Route>
-              <Route path="/cv">
+              <Route path="/portfolio/cv">
                 <BlogComponent />
               </Route>
-              <Route path="/books">
+              <Route path="/portfolio/books">
                 <BooksComponent />
               </Route>
-              <Route path="/interests">
+              <Route path="/portfolio/interests">
                 <BlogComponent />
               </Route>
               <Route exact path="/portfolio">
-                <Content />
-              </Route>
-              <Route exact path="/">
                 <Content />
               </Route>
             </Switch>

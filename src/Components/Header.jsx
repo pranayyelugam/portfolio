@@ -12,11 +12,11 @@ export default class Header extends Component {
             <div>
                 <div className="header-select">
                     <ul className="nav-bar">
-                        <CustomLink to="/" label="Home" />
-                        <CustomLink to="/blog" label="Blog" />
-                        <CustomLink to="/books" label="Books" />
-                        <CustomLink to="/cv" label="CV" />
-                        <CustomLink to="/interests" label="Interests" />
+                        <CustomLink to="/portfolio" label="Home" />
+                        <CustomLink to="/portfolio/blog" label="Blog" />
+                        <CustomLink to="/portfolio/books" label="Books" />
+                        <CustomLink to="/portfolio/cv" label="CV" />
+                        <CustomLink to="/portfolio/interests" label="Interests" />
                     </ul>
                 </div>
             </div>
