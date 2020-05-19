@@ -33,6 +33,9 @@ function App() {
               <Route path="/interests">
                 <BlogComponent />
               </Route>
+              <Route exact path="/portfolio">
+                <Content />
+              </Route>
               <Route exact path="/">
                 <Content />
               </Route>
