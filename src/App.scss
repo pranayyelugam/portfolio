@@ -1,16 +1,21 @@
 .App{
+  //min-height: calc(100vh - 2.5rem);
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  font-family: Great Vibes;
+  text-shadow: 0 1px 1px #fff;
   .dynamic-area {
-    min-height: 100%;
+    flex: 1;
   }
   .content-bottom {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
     height: 2.5rem;
-    margin-top: -2.5rem;
-    margin-left: 20rem;
-    margin-right: 20rem;
+    bottom: 1rem;
   }
   .site-content {
     text-align: justify;
@@ -19,7 +24,7 @@
     margin-right: 5rem;
     display: flex;
     flex-direction: column;
-    padding-bottom: 2.5rem;
+    //padding-bottom: 2.5rem;
     .nav-menu {
       margin-left: 7.5rem;
       padding-left: 40rem;
@@ -32,17 +37,23 @@
       width: 100%;
       padding-left: 0rem;
       .nav-mem {
-        padding: 0.5rem;
+        padding: 0.4rem;
         margin-right: 1rem;
-        border-radius: 0.5rem;
+        border-radius: 0.2rem;
         text-decoration: none;
           color:#696969;
           &:hover {
             color: rgb(54, 73, 98)	;
           }
-          &:active {
-            color: black;
-          }
+         
+      }
+      .active-menu-item{
+        padding: 0.4rem;
+        margin-right: 1rem;
+        border-radius: 0.2rem;
+        text-decoration: none;
+        color: black;
+        background-color: #DCDCDC;
       }
     }
     .content {

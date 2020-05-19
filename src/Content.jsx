@@ -27,11 +27,10 @@ export default class Content extends Component {
                         lineHeight: '1.6rem'
                     }}>
                         My passion for technology is split between web technolgies and building machine learning models.
-                        I like to participate in Kaggle challenges. I'm actively participating in kaggle challenges and I would
-                        like to become a grandmaster in the future. My current research includes finding solutions for the robustness
+                        I like to participate in Kaggle challenges. I'm actively participating in kaggle challenges and you could find me there tinkering with the models. My current research includes finding solutions for the robustness
                         in the few shot classification. My past research focussed on exploring links between people in
-                        social networks and extracting recommendations for the end user. I am a react developer and have used
-                        it to build a website for RoadPiper Technolgies.
+                        social networks and extracting recommendations for the end user. 
+                        
                     </Card>
                 </div>
             </div>

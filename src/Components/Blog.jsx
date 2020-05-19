@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 
-export default class Blog extends Component {
+export default class BlogComponent extends Component {
     render() {
         return (
-            <div>p</div>
+            <div class="books-container">
+                <h1 className="stylish-name">Coming Soon </h1>
+            </div>
         )
     }
 }

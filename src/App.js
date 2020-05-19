@@ -3,7 +3,6 @@ import logo from './logo.svg';
 import './App.scss';
 import Content from './Content';
 import Header from './Components/Header';
-import Blog from './Components/Blog';
 
 import {
   BrowserRouter as Router,
@@ -11,6 +10,8 @@ import {
   Route
 } from "react-router-dom";
 import Footer from './Components/Footer';
+import BlogComponent from './Components/Blog';
+import BooksComponent from './Components/Books';
 
 function App() {
   return (
@@ -21,7 +22,16 @@ function App() {
             <div className="nav-menu"><Header /></div>
             <Switch>
               <Route path="/blog">
-                <Blog />
+                <BlogComponent />
+              </Route>
+              <Route path="/cv">
+                <BlogComponent />
+              </Route>
+              <Route path="/books">
+                <BooksComponent />
+              </Route>
+              <Route path="/interests">
+                <BlogComponent />
               </Route>
               <Route exact path="/">
                 <Content />
