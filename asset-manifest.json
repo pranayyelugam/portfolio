@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/portfolio/static/css/main.a8440ad8.chunk.css",
+    "main.js": "/portfolio/static/js/main.5be4ddba.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.5be4ddba.chunk.js.map",
+    "runtime-main.js": "/portfolio/static/js/runtime-main.fed7eca6.js",
+    "runtime-main.js.map": "/portfolio/static/js/runtime-main.fed7eca6.js.map",
+    "static/js/2.0cf1c686.chunk.js": "/portfolio/static/js/2.0cf1c686.chunk.js",
+    "static/js/2.0cf1c686.chunk.js.map": "/portfolio/static/js/2.0cf1c686.chunk.js.map",
+    "index.html": "/portfolio/index.html",
+    "precache-manifest.2ef0cc1c34821859aaf88b57e34f51f4.js": "/portfolio/precache-manifest.2ef0cc1c34821859aaf88b57e34f51f4.js",
+    "service-worker.js": "/portfolio/service-worker.js",
+    "static/css/main.a8440ad8.chunk.css.map": "/portfolio/static/css/main.a8440ad8.chunk.css.map",
+    "static/js/2.0cf1c686.chunk.js.LICENSE": "/portfolio/static/js/2.0cf1c686.chunk.js.LICENSE",
+    "static/media/GreatVibes-Regular.ttf": "/portfolio/static/media/GreatVibes-Regular.c1c92d0c.ttf",
+    "static/media/logo.svg": "/portfolio/static/media/logo.5d5d9eef.svg",
+    "static/media/profile_dp1.jpg": "/portfolio/static/media/profile_dp1.ea8a267c.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fed7eca6.js",
+    "static/js/2.0cf1c686.chunk.js",
+    "static/css/main.a8440ad8.chunk.css",
+    "static/js/main.5be4ddba.chunk.js"
+  ]
+}
