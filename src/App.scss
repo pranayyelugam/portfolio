@@ -1,5 +1,4 @@
 .App{
-  //min-height: calc(100vh - 2.5rem);
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -8,98 +7,7 @@
   .dynamic-area {
     flex: 1;
   }
-  .content-bottom {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    height: 2.5rem;
-    bottom: 1rem;
-  }
-  .site-content {
-    text-align: justify;
-    padding: 2rem 0 0 0;
-    margin-left: 5rem;
-    margin-right: 5rem;
-    display: flex;
-    flex-direction: column;
-    //padding-bottom: 2.5rem;
-    .nav-menu {
-      margin-left: 7.5rem;
-      padding-left: 40rem;
-    }
-    .nav-bar {
-      list-style-type: none;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      width: 100%;
-      padding-left: 0rem;
-      .nav-mem {
-        padding: 0.4rem;
-        margin-right: 1rem;
-        border-radius: 0.2rem;
-        text-decoration: none;
-          color:#696969;
-          &:hover {
-            color: rgb(54, 73, 98)	;
-          }
-         
-      }
-      .active-menu-item{
-        padding: 0.4rem;
-        margin-right: 1rem;
-        border-radius: 0.2rem;
-        text-decoration: none;
-        color: black;
-        background-color: #DCDCDC;
-      }
-    }
-    .content {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 4rem;
-      .content-left,
-      .content-right {
-        display: flex;
-        flex-direction: column;
-        width: 30rem;
-        justify-content: center;
-      }
-
-      .content-left {
-        margin-right: 2.5rem;
-        margin-left: 2.5rem;
-        .stylish-name {
-          font-family: Great Vibes, cursive;
-          margin: 0 0 0 3rem;
-          text-align: left;
-          text-shadow: 0 1px 1px #fff;
-        }
-        .dp{
-          padding: 2rem 0 0 2rem;
-          margin-bottom: 0rem;
-          height: 20rem;
-          width: 20rem;
-        }
-      }
-
-      .content-right {
-        margin-left: 2.5rem;
-        margin-right: 2.5rem;
-      }
-    }
-  }
 }
-
-
-
-
-
-
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

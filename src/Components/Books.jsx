@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './books.scss'
+import '../css/books.scss'
 export default class BooksComponenet extends Component {
     render() {
         return (

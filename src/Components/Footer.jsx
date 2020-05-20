@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { SocialIcon } from 'react-social-icons';
-
+import '../css/Footer.scss'
 
 export default class Footer extends Component {
     render() {

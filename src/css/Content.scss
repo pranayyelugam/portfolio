@@ -1,0 +1,78 @@
+.site-content {
+    text-align: justify;
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+  .content-left,
+  .content-right {
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+    justify-content: center;
+  }
+  .content-left {
+    margin-right: 2.5rem;
+    margin-left: 2.5rem;
+    .stylish-name {
+      font-family: Great Vibes, cursive;
+      margin: 0 0 0 3rem;
+      text-align: left;
+      text-shadow: 0 1px 1px #fff;
+    }
+    .dp{
+      padding: 2rem 0 0 2rem;
+      margin-bottom: 0rem;
+      height: 20rem;
+      width: 20rem;
+    }
+  }
+
+  .content-right {
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+  }
+}
+
+
+
+/* Extra small devices (phones, up to 480px) */
+@media screen and (max-width: 480px) {
+  .content-left,
+  .content-right {   
+    width: 20rem !important;
+    margin-bottom: 1rem;
+    margin-left: 1.5rem !important;
+    margin-right: 1.5rem !important;
+  }
+  .site-content {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+   .dp{
+      padding: 1rem 0 0 1rem !important;
+   }
+  
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .content-left,
+  .content-right {   
+    width: 25rem !important;
+  }
+}
+/* tablets/desktops and up ———– */
+@media (min-width: 992px) and (max-width: 1199px) {
+   .content-left,
+  .content-right {   
+    width: 25rem !important;
+  }
+}
+/* large desktops and up ———– */
+@media screen and (min-width: 1200px) {
+}

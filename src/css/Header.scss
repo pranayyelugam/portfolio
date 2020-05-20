@@ -1,0 +1,72 @@
+.header-row{
+    display: flex;
+    flex-direction: row;
+  }
+  .empty-space {
+    flex: 50%
+  }
+  .nav-bar {
+    list-style-type: none;
+    flex:50%;
+    padding-top: 4rem;
+    .nav-mem {
+      padding: 0.4rem;
+      margin-right: 1rem;
+      border-radius: 0.2rem;
+      text-decoration: none;
+        color:#696969;
+        &:hover {
+          color: rgb(54, 73, 98)	;
+        }
+    }
+    .active-menu-item{
+      padding: 0.4rem;
+      margin-right: 1rem;
+      border-radius: 0.2rem;
+      text-decoration: none;
+      color: black;
+      background-color: #DCDCDC;
+    }
+  }
+
+
+/* Extra small devices (phones, up to 480px) */
+@media screen and (max-width: 767px) {
+  .header-row {   
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  .nav-bar {
+    flex: 100%;
+  }
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .header-row {   
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  .nav-bar {
+    flex: 100%;
+  }
+}
+/* tablets/desktops and up ———– */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .header-row {   
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  .nav-bar {
+    flex: 100%;
+    padding-inline-start: 0rem;
+  }
+}
+/* large desktops and up ———– */
+@media screen and (min-width: 1200px) {
+  .nav-bar {
+    padding-left: 6rem;
+  }
+}
