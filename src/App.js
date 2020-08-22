@@ -23,25 +23,25 @@ function App() {
         <div className="dynamic-area">
           <div className="site-content">
             <Switch>
-              <Route path="/portfolio/maps/:id" >
+              <Route path={process.env.PUBLIC_URL + '/portfolio/maps/:id'}  >
                 <MapUser />
               </Route>
-              <Route exact path="/portfolio/projects/indiacities">
+              <Route exact path={process.env.PUBLIC_URL + '/portfolio/projects/indiacities'} >
                 <BlogComponent />
               </Route>
-              <Route exact path="/portfolio/projects">
+              <Route exact path={process.env.PUBLIC_URL + '/portfolio/projects'} >
                 <ProjectsComponent />
               </Route>
-              <Route path="/portfolio/cv">
+              <Route path={process.env.PUBLIC_URL + '/portfolio/cv'} >
                 <BooksComponent />
               </Route>
-              <Route path="/portfolio/books">
+              <Route path={process.env.PUBLIC_URL + '/portfolio/books'} >
                 <BooksComponent />
               </Route>
-              <Route path="/portfolio/interests">
+              <Route path={process.env.PUBLIC_URL + '/portfolio/interests'} >
                 <BooksComponent />
               </Route>
-              <Route exact path="/portfolio">
+              <Route exact path={process.env.PUBLIC_URL + '/portfolio'} >
                 <Content />
               </Route>
             </Switch>
