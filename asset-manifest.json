@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.a8f13e90.chunk.css",
-    "main.js": "/portfolio/static/js/main.8475bb4b.chunk.js",
-    "main.js.map": "/portfolio/static/js/main.8475bb4b.chunk.js.map",
-    "runtime-main.js": "/portfolio/static/js/runtime-main.fed7eca6.js",
-    "runtime-main.js.map": "/portfolio/static/js/runtime-main.fed7eca6.js.map",
-    "static/js/2.51914935.chunk.js": "/portfolio/static/js/2.51914935.chunk.js",
-    "static/js/2.51914935.chunk.js.map": "/portfolio/static/js/2.51914935.chunk.js.map",
-    "index.html": "/portfolio/index.html",
-    "precache-manifest.38a5d2b4213ba5d8f93f4aaba341ba10.js": "/portfolio/precache-manifest.38a5d2b4213ba5d8f93f4aaba341ba10.js",
-    "service-worker.js": "/portfolio/service-worker.js",
-    "static/css/main.a8f13e90.chunk.css.map": "/portfolio/static/css/main.a8f13e90.chunk.css.map",
-    "static/js/2.51914935.chunk.js.LICENSE": "/portfolio/static/js/2.51914935.chunk.js.LICENSE",
-    "static/media/GreatVibes-Regular.ttf": "/portfolio/static/media/GreatVibes-Regular.c1c92d0c.ttf",
-    "static/media/profile_dp1.jpg": "/portfolio/static/media/profile_dp1.ea8a267c.jpg"
+    "main.css": "/static/css/main.5535fbb8.chunk.css",
+    "main.js": "/static/js/main.60aaf140.chunk.js",
+    "main.js.map": "/static/js/main.60aaf140.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.7b61e083.js",
+    "runtime-main.js.map": "/static/js/runtime-main.7b61e083.js.map",
+    "static/js/2.51914935.chunk.js": "/static/js/2.51914935.chunk.js",
+    "static/js/2.51914935.chunk.js.map": "/static/js/2.51914935.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.ea4379455416e938e95f655dc41e6ebe.js": "/precache-manifest.ea4379455416e938e95f655dc41e6ebe.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.5535fbb8.chunk.css.map": "/static/css/main.5535fbb8.chunk.css.map",
+    "static/js/2.51914935.chunk.js.LICENSE": "/static/js/2.51914935.chunk.js.LICENSE",
+    "static/media/GreatVibes-Regular.ttf": "/static/media/GreatVibes-Regular.c1c92d0c.ttf",
+    "static/media/profile_dp1.jpg": "/static/media/profile_dp1.ea8a267c.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.fed7eca6.js",
+    "static/js/runtime-main.7b61e083.js",
     "static/js/2.51914935.chunk.js",
-    "static/css/main.a8f13e90.chunk.css",
-    "static/js/main.8475bb4b.chunk.js"
+    "static/css/main.5535fbb8.chunk.css",
+    "static/js/main.60aaf140.chunk.js"
   ]
 }
