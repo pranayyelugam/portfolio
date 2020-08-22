@@ -1,9 +1,49 @@
-.blog-container {
-    padding: 2.5rem;
-    .stylish-name {
-        font-family: Great Vibes, cursive;
-        text-align: left;
-        text-shadow: 0 1px 1px #fff;
-        padding: 2rem;
+.site-content {
+    text-align: justify;
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+}
+
+.box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    .box-left,
+    .box-right {
+      display: flex;
+      flex-direction: column;   
     }
+    .box-left{
+      margin-left: 3rem;
+      width: 20rem;
+      margin-top: 2rem;
+      .buttons {
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: row;  
+        justify-content: space-between; 
+          .boxleft1{
+            width: 40%;
+          }
+          .boxleft2{
+            width: 40%;
+          }
+      }
+    }
+  .box-right {
+    margin-left: 5rem;
+    width: 60rem;
+    border-color: black;
+    justify-content: center;
+  }
+  .error {
+    position: relative;
+    animation: shake .1s linear;
+    animation-iteration-count: 3;
+}
+@keyframes shake {
+    0% { left: -5px; }
+    100% { right: -5px; }
+}
 }

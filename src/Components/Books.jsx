@@ -12,6 +12,7 @@ export default class BooksComponenet extends Component {
                     <li>Permanent Record</li>
                     <li>The Godfather</li>
                     <li>The Last Juror</li>
+                    <li>Ikigai: The Japanese Secret to a Long and Happy Life</li>
                 </ui>
 
             </div>

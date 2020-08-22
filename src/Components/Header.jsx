@@ -14,9 +14,9 @@ export default class Header extends Component {
                 <div className="empty-space"></div>
                 <ul className="nav-bar">
                     <CustomLink to="/portfolio" label="Home" />
-                    <CustomLink to="/portfolio/blog" label="Blog" />
+                    <CustomLink to="/portfolio/projects" label="Projects" />
                     <CustomLink to="/portfolio/books" label="Books" />
-                    <CustomLink to="/portfolio/cv" label="CV" />
+                    <CustomLink to="/portfolio/projec" label="CV" />
                     <CustomLink to="/portfolio/interests" label="Interests" />
                 </ul>
             </div>
