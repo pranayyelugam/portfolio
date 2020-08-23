@@ -13,11 +13,11 @@ export default class Header extends Component {
             <div className="header-row">
                 <div className="empty-space"></div>
                 <ul className="nav-bar">
-                    <CustomLink to={process.env.PUBLIC_URL + '/portfolio'} label="Home" />
-                    <CustomLink to={process.env.PUBLIC_URL + '/portfolio/projects'} label="Projects" />
-                    <CustomLink to={process.env.PUBLIC_URL + '/portfolio/books'} label="Books" />
-                    <CustomLink to={process.env.PUBLIC_URL + '/portfolio/cv'} label="CV" />
-                    <CustomLink to={process.env.PUBLIC_URL + '/portfolio/interests'} label="Interests" />
+                    <CustomLink to="/portfolio" label="Home" />
+                    <CustomLink to="/portfolio/projects" label="Projects" />
+                    <CustomLink to="/portfolio/books" label="Books" />
+                    <CustomLink to="/portfolio/cv" label="CV" />
+                    <CustomLink to="/portfolio/interests" label="Interests" />
                 </ul>
             </div>
 
