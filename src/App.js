@@ -8,7 +8,7 @@ import BooksComponent from './Components/Books';
 import MapUser from './Components/MapUser'
 
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
