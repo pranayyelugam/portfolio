@@ -18,7 +18,7 @@ import ProjectsComponent from './Components/Projects';
 function App() {
   return (
     <div className="App">
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router>
         <Header />
         <div className="dynamic-area">
           <div className="site-content">
