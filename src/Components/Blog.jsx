@@ -54,7 +54,7 @@ function SaveButton(props) {
 
     }
     return (
-        <button onClick={datasave} type="button" className="boxleft1">Save & Share</button>
+        <button onClick={datasave} type="button" className="boxleft1">Finish & Share</button>
     )
 }
 
