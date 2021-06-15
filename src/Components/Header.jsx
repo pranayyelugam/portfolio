@@ -15,6 +15,9 @@ export default class Header extends Component {
                 <ul className="nav-bar">
                     <CustomLink to="/portfolio" label="Home" />
                     <CustomLink to="/portfolio/projects" label="Projects" />
+                    <CustomLink to="/portfolio/blog" label="Blog" />
+                    <CustomLink to="/portfolio/publications" label="Publications" />
+
                 </ul>
             </div>
 
