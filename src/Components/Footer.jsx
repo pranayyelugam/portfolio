@@ -5,7 +5,7 @@ import { FiTwitter } from 'react-icons/fi';
 import { GrMail } from 'react-icons/gr';
 import { SiGooglescholar } from 'react-icons/si';
 
-import resume from '../resume.pdf'
+import resume from '../resume_22.pdf'
 
 
 import '../css/Footer.scss'

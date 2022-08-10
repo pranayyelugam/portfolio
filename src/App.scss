@@ -2,11 +2,22 @@
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
   text-shadow: 0 1px 1px #fff;
+  
   .dynamic-area {
     flex: 1;
   }
+}
+
+p {
+  line-height: "1.5rem";
+}
+
+a{
+  text-decoration: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {

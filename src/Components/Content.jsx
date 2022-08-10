@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Card from 'card-vibes'
-import img from '../Images/pxl.jpg'
+import img from '../Images/acadia_1.jpg'
 import '../css/Content.scss'
 
 export default class Content extends Component {
@@ -24,6 +24,7 @@ export default class Content extends Component {
                    
                    
                     <h1 className="stylish-name">Pranay Yelugam</h1>
+                    <h4 className="stylish-name">MTS @ Eightfold.ai</h4>
                     <h4 className="stylish-name">Graduate Student @ CICS</h4>
                     <h4 className="stylish-name">University of Massachusetts Amherst</h4>
                 </div>
@@ -33,28 +34,19 @@ export default class Content extends Component {
                     <p style={{
                         lineHeight:"1.5rem"
                     }}>
-                        I'm a first year Masters student in the College of Information & Computer Sciences at the University of Massachusetts Amherst.
-                        Previously, I completed my Bachelors in Computer Science at Indian Institute of Information Technology Allahabad, advised by &nbsp;
-                         <a href="http://www.sonaliagarwal.com/">
-                            Dr. Sonali Agarwal.
-                        </a>
-                        .&nbsp;
-                         <br></br> <br></br>
-                        Most recently, I worked on analysing the discourse structure in scientific peer review and how this study impacts the transparency in the
+                        I'm currently working as a Member of Technical Staff (MTS) at <a href='https://eightfold.ai'>Eightfold.ai</a>. I received my
+                        B.S. from Indian Institute of Information Technology Allahabad, and completed M.S. from the College of Information & Computer Sciences at the University of Massachusetts Amherst,
+                        during which I spent some time at <a href="http://www.iesl.cs.umass.edu/">IESL</a> working with <a href="https://people.cs.umass.edu/~mccallum/">Andrew McCallum.</a>
+                        <br></br> <br></br>
+                        
+                        <b>Research Interests:</b> I'm more inclined towards research at the intersection of natural language processing, question answering, commonsense question answering, knowledge representation, and machine learning in general. 
+                        My current research interests include combining external knowledge sources with Langugage Models for generative question answering. 
+                        
+                        <br></br> <br></br>
+                        <b>Experience:</b> Most recently, I worked on designing a probabilistic evaluation method for open-ended commonsense question answering tasks.
+                        Previously, I worked on analysing the discourse structure in scientific peer review and how this study impacts the transparency in the
                         scientific peer review system. I helped in annotating a dataset and creating models that would give more insights into peer review system through the lens
-                        of discourse at the document level.
-
-                        I was advised by <a href="https://people.cs.umass.edu/~mccallum/">Prof. Andrew McCallum</a> and &nbsp;
-                        <a href="https://nnkennard.github.io/">Neha Kennard</a>  
-                    
-                        .&nbsp; 
-                         <br></br> <br></br>
-                        Currently, I'm working as a Research Intern at <a href="http://www.iesl.cs.umass.edu/">
-                            IESL
-                        </a> under the supervision of &nbsp;
-                        <a href="https://people.cs.umass.edu/~mccallum/">Prof. Andrew McCallum</a> and &nbsp;
-                        <a href="https://people.cs.umass.edu/~xiangl/">Xiang Lorraine Li</a> and &nbsp;
-                        <a href="https://people.cs.umass.edu/~mboratko/">Michael Boratko</a> solving problems pertaining to commonsense reasoning.
+                        of discourse at the document level. 
                         
                     </p>
                    
