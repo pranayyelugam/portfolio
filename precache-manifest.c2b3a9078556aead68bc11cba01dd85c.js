@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2eec5e6247fede52ef20fb54be13f460",
+    "revision": "ec1cabcdc06792aa8d3f8f5929629a8f",
     "url": "/portfolio/index.html"
   },
   {
-    "revision": "c1c29459b8e79533dda6",
-    "url": "/portfolio/static/css/main.5720a697.chunk.css"
+    "revision": "e7bda8501fb4f988cd12",
+    "url": "/portfolio/static/css/main.28e05a46.chunk.css"
   },
   {
     "revision": "13d5bf741c58a2313a6d",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/portfolio/static/js/2.475ea6c2.chunk.js.LICENSE"
   },
   {
-    "revision": "c1c29459b8e79533dda6",
-    "url": "/portfolio/static/js/main.2b7dc00d.chunk.js"
+    "revision": "e7bda8501fb4f988cd12",
+    "url": "/portfolio/static/js/main.24b635df.chunk.js"
   },
   {
     "revision": "6fef3673099b4dcdb973",
@@ -28,11 +28,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/portfolio/static/media/GreatVibes-Regular.c1c92d0c.ttf"
   },
   {
-    "revision": "e08616dd663f9ee0765dc3e738acd6c3",
-    "url": "/portfolio/static/media/pxl.e08616dd.jpg"
+    "revision": "8adaec377215f883294b89743bd01335",
+    "url": "/portfolio/static/media/acadia_1.8adaec37.jpg"
   },
   {
-    "revision": "d4fb54c8497d42da4bad49c44ac36e81",
-    "url": "/portfolio/static/media/resume.d4fb54c8.pdf"
+    "revision": "f485cd4685bbd76f7921c39e396ffe96",
+    "url": "/portfolio/static/media/resume_22.f485cd46.pdf"
   }
 ]);
