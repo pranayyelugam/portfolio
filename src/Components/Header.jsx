@@ -7,7 +7,6 @@ import {
 import '../css/Header.scss'
 
 export default class Header extends Component {
-
     render() {
         return (
             <div className="header-row">
@@ -16,22 +15,19 @@ export default class Header extends Component {
                     <CustomLink to="/portfolio" label="Home" />
                     <CustomLink to="/portfolio/publications" label="Publications" />
                     <CustomLink to="/portfolio/projects" label="Projects" />
+                    <CustomLink to="/portfolio/photography" label="Photography" />
                     <CustomLink to="/portfolio/blog" label="Blog" />
-                   
-
                 </ul>
             </div>
-
         )
     }
 }
 
-function CustomLink({ to, label }) {
+const CustomLink = ({ to, label }) => {
     let match = useRouteMatch({
         path: to,
         exact: true
     })
-
     let menuItemClass = classNames('nav-mem')
     let menuActiveItemClass = classNames('active-menu-item')
 

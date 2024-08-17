@@ -1,9 +1,10 @@
 .projects{
     margin-left: 5rem;
     margin-right: 5rem;
+    margin-bottom: 1rem;
     .projects-container {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: wrap;
         .project-left,
         .project-right {

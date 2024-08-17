@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.scss';
 import Content from './Components/Content';
 import Header from './Components/Header';
@@ -15,9 +15,16 @@ import {
 } from "react-router-dom";
 import ProjectsComponent from './Components/Projects';
 import BlogComponent from './Components/Blog';
+import PhotographyContainer from './Components/Photography';
 
 
 function App() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile({ isMobile: window.innerWidth < 480 });
+  }, []);
+
   return (
     <div className="App">
       <Router>
@@ -32,7 +39,7 @@ function App() {
                 <MapPageComponent />
               </Route>
               <Route exact path="/portfolio/projects">
-                <ProjectsComponent />
+                <ProjectsComponent isMobile={isMobile} />
               </Route>
               <Route path="/portfolio/blog">
                 <BlogComponent />
@@ -46,6 +53,9 @@ function App() {
               <Route path="/portfolio/interests">
                 <BooksComponent />
               </Route>
+              <Route exact path="/portfolio/photography">
+                <PhotographyContainer />
+              </Route>
               <Route exact path="/portfolio">
                 <Content />
               </Route>
@@ -53,7 +63,9 @@ function App() {
           </div>
         </div>
       </Router>
+
       <Footer />
+
     </div>
   );
 }

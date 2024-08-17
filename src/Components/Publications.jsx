@@ -4,6 +4,12 @@ export default class PublicationComponent extends Component {
     render() {
         const publications = [
             {
+                'title': 'Every Answer Matters: Evaluating Commonsense with Probabilistic Measures',
+                'link': 'https://aclanthology.org/2024.acl-long.29/',
+                'authors': "Qi Cheng, Michael Boratko, Pranay Kumar Yelugam, Tim O’Gorman, Nalini Singh, Andrew McCallum, and Xiang Li",
+                'conference': '62nd Annual Meeting of the Association for Computational Linguistics (ACL 2024)'
+            },
+            {
                 'title': 'DISAPERE: A Dataset for Discourse Structure in Peer Review Discussions',
                 'link': 'https://arxiv.org/abs/2110.08520',
                 'authors': "Neha Nayak Kennard, Tim O'Gorman, Rajarshi Das, Akshay Sharma, Chhandak Bagchi, Matthew Clinton, Pranay Kumar Yelugam, Hamed Zamani, Andrew McCallum",
@@ -21,9 +27,13 @@ export default class PublicationComponent extends Component {
                 <ul>
                     {publications.map((publication, index) => {
                         return (
-                            <li key={index}>
+                            <li key={index}
+                                style={{
+                                    padding: '10px'
+                                }}
+                            >
                                 <a href={publication.link}> {publication.title}</a><br></br>
-                                <p>{publication.authors}</p>
+                                <p>{publication?.authors}</p>
                                 <p><i>{publication.conference}</i></p>
                                 
                             </li>

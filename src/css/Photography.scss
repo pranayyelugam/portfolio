@@ -1,0 +1,12 @@
+.image-container {
+    padding: 2.5rem;
+    .title {
+        word-spacing: normal;
+        font-weight: 1;
+    }
+    .img-style {
+        height: fit-content;
+        width: fit-content;
+        object-fit: contain;
+    }
+}
