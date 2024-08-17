@@ -1,25 +1,29 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.28e05a46.chunk.css",
-    "main.js": "/portfolio/static/js/main.9cb542cd.chunk.js",
-    "main.js.map": "/portfolio/static/js/main.9cb542cd.chunk.js.map",
+    "main.css": "/portfolio/static/css/main.a77dd4e9.chunk.css",
+    "main.js": "/portfolio/static/js/main.96f5986b.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.96f5986b.chunk.js.map",
     "runtime-main.js": "/portfolio/static/js/runtime-main.fed7eca6.js",
     "runtime-main.js.map": "/portfolio/static/js/runtime-main.fed7eca6.js.map",
-    "static/js/2.475ea6c2.chunk.js": "/portfolio/static/js/2.475ea6c2.chunk.js",
-    "static/js/2.475ea6c2.chunk.js.map": "/portfolio/static/js/2.475ea6c2.chunk.js.map",
+    "static/css/2.62c37b7d.chunk.css": "/portfolio/static/css/2.62c37b7d.chunk.css",
+    "static/js/2.44fc8060.chunk.js": "/portfolio/static/js/2.44fc8060.chunk.js",
+    "static/js/2.44fc8060.chunk.js.map": "/portfolio/static/js/2.44fc8060.chunk.js.map",
     "index.html": "/portfolio/index.html",
-    "precache-manifest.6ba36054e3e3a9b21567e40682b7493d.js": "/portfolio/precache-manifest.6ba36054e3e3a9b21567e40682b7493d.js",
+    "precache-manifest.3bffe9812ae1a4acf20ec1f513bb7b28.js": "/portfolio/precache-manifest.3bffe9812ae1a4acf20ec1f513bb7b28.js",
     "service-worker.js": "/portfolio/service-worker.js",
-    "static/css/main.28e05a46.chunk.css.map": "/portfolio/static/css/main.28e05a46.chunk.css.map",
-    "static/js/2.475ea6c2.chunk.js.LICENSE": "/portfolio/static/js/2.475ea6c2.chunk.js.LICENSE",
+    "static/css/2.62c37b7d.chunk.css.map": "/portfolio/static/css/2.62c37b7d.chunk.css.map",
+    "static/css/main.a77dd4e9.chunk.css.map": "/portfolio/static/css/main.a77dd4e9.chunk.css.map",
+    "static/js/2.44fc8060.chunk.js.LICENSE": "/portfolio/static/js/2.44fc8060.chunk.js.LICENSE",
     "static/media/GreatVibes-Regular.ttf": "/portfolio/static/media/GreatVibes-Regular.c1c92d0c.ttf",
     "static/media/acadia_1.jpg": "/portfolio/static/media/acadia_1.8adaec37.jpg",
-    "static/media/resume_22.pdf": "/portfolio/static/media/resume_22.f485cd46.pdf"
+    "static/media/resume_22.pdf": "/portfolio/static/media/resume_22.f485cd46.pdf",
+    "static/media/slick-theme.css": "/portfolio/static/media/slick.f97e3bbf.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.fed7eca6.js",
-    "static/js/2.475ea6c2.chunk.js",
-    "static/css/main.28e05a46.chunk.css",
-    "static/js/main.9cb542cd.chunk.js"
+    "static/css/2.62c37b7d.chunk.css",
+    "static/js/2.44fc8060.chunk.js",
+    "static/css/main.a77dd4e9.chunk.css",
+    "static/js/main.96f5986b.chunk.js"
   ]
 }
