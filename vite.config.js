@@ -4,6 +4,9 @@ import { VitePWA } from 'vite-plugin-pwa';
 import ViteWebfontDownload from 'vite-plugin-webfont-dl';
 
 export default defineConfig({
+  define: {
+    'process.env': {}
+  },
   base: '/portfolio/',
   plugins: [
     react(),

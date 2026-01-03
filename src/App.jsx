@@ -16,6 +16,8 @@ import {
 const PublicationComponenet = lazy(() => import('./Components/Publications'));
 const ProjectsComponent = lazy(() => import('./Components/Projects'));
 const BlogComponent = lazy(() => import('./Components/Blog'));
+const BlogPostComponent = lazy(() => import('./Components/BlogPost'));
+
 // Use lazyWithPreload for Photography page to enable intent-based prefetching
 const PhotographyContainer = lazyWithPreload(() => import('./Components/Photography'));
 
@@ -50,8 +52,11 @@ function App() {
                     <Route exact path="/projects">
                       <ProjectsComponent />
                     </Route>
-                    <Route path="/blog">
+                    <Route exact path="/blog">
                       <BlogComponent />
+                    </Route>
+                    <Route path="/blog/:slug">
+                      <BlogPostComponent />
                     </Route>
                     <Route path="/publications">
                       <PublicationComponenet />
