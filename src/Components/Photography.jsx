@@ -23,10 +23,25 @@ const CarouselContainer = () => {
             }
         ]
     };
+
+    const [selectedTag, setSelectedTag] = useState(null);
+
+    const toggleTag = (tag) => {
+        if (selectedTag === tag) {
+            setSelectedTag(null);
+        } else {
+            setSelectedTag(tag);
+        }
+    };
+
+    const visibleImages = selectedTag
+        ? Images.filter(img => img.tags && img.tags.includes(selectedTag))
+        : Images;
+
     return (
         <div className='image-container'>
-            <Slider {...settings}>
-                {Images.map((item) => (
+            <Slider {...settings} key={selectedTag}> {/* Key forces remount on filter change */}
+                {visibleImages.map((item) => (
                     <div key={item.id} className="slide-item">
                         <img 
                             src={item.src} 
@@ -38,6 +53,19 @@ const CarouselContainer = () => {
                         />
                         <h2 className="title">{item.title}</h2>
                         <p className="description">{item.description}</p>
+                        {item.tags && (
+                            <div className="tag-container" style={{ justifyContent: 'center', marginBottom: '1rem' }}>
+                                {item.tags.map((tag, i) => (
+                                    <span 
+                                        key={i} 
+                                        className={`tag-pill ${selectedTag === tag ? 'active' : ''}`}
+                                        onClick={() => toggleTag(tag)}
+                                    >
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                        )}
                     </div>
                 ))}
             </Slider>
