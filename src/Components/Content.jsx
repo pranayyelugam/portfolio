@@ -8,7 +8,7 @@ const LeftContainer = () => {
     return (
         <header className="content-left">
             <div className="dp">
-                <img src={img} alt="Pranay Yelugam" style={{ borderRadius: '5%' }} loading="lazy" width="288" height="384" />
+                <img src={img} alt="Pranay Yelugam" style={{ borderRadius: '5%' }} fetchPriority="high" width="288" height="384" />
             </div>
             <h1 className="stylish-name">Pranay Yelugam</h1>
             <h2 className="stylish-name job-title">Senior Software Engineer @ Verkada</h2>
