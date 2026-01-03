@@ -4,7 +4,7 @@ Personal website of Pranay Yelugam.
 
 ## 🚀 Performance & Optimizations
 
-### ⚡️ Performance
+
 - **Code Splitting**: Heavy components (e.g., Photography) are lazy-loaded to keep the initial bundle size small.
 - **Route-Based Preloading**: Critical assets for upcoming routes can be preloaded on hover.
 - **Zero-Layout Shift**: Strict dimensioning and layout reservation ensure the UI never "jumps" during loading.
