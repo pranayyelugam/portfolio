@@ -1,5 +1,3 @@
-# Pranay Yelugam - Portfolio
-
 Personal website of Pranay Yelugam.
 
 ## 🚀 Performance & Optimizations
