@@ -13,9 +13,6 @@ import {
 } from "react-router-dom";
 
 // Lazy load components
-// const MapPageComponent = lazy(() => import('./Components/MapPage'));
-// const BooksComponent = lazy(() => import('./Components/Books'));
-// const MapUser = lazy(() => import('./Components/MapUser'));
 const PublicationComponenet = lazy(() => import('./Components/Publications'));
 const ProjectsComponent = lazy(() => import('./Components/Projects'));
 const BlogComponent = lazy(() => import('./Components/Blog'));
@@ -50,31 +47,12 @@ function App() {
               <div className="site-content">
                 <Suspense fallback={<LoadingSpinner />}>
                   <Switch>
-                    {/*
-                    <Route path="/maps/:id" >
-                      <MapUser />
-                    </Route>
-                    <Route exact path="/projects/how_many_indian_cities_can_you_name">
-                      <MapPageComponent />
-                    </Route>
-                    */}
                     <Route exact path="/projects">
                       <ProjectsComponent />
                     </Route>
                     <Route path="/blog">
                       <BlogComponent />
                     </Route>
-                    {/*
-                    <Route path="/books">
-                      <BooksComponent />
-                    </Route>
-                    <Route path="/publications">
-                      <PublicationComponenet />
-                    </Route>
-                    <Route path="/interests">
-                      <BooksComponent />
-                    </Route>
-                    */}
                     <Route path="/publications">
                       <PublicationComponenet />
                     </Route>
