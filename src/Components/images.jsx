@@ -5,7 +5,7 @@ const Images = [
         alt: "Acadia Sunrise",
         title: "Sunrise from Cadillac Mountain",
         description:"",
-        tags: ["Nature", "Maine"]
+        tags: ["Nature", "Sunrise", "Maine"]
     },
     {
         id: 2,
