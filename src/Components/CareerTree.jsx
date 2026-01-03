@@ -83,7 +83,7 @@ const CareerNode = ({ item, isLast, showCountry, isReverse }) => {
                             alt={`${item.location} monument`}
                             className="monument-icon"
                             width="100"
-                            height="80"
+                            height="100"
                         />
                     </div>
                 )}
@@ -113,7 +113,7 @@ const CareerNode = ({ item, isLast, showCountry, isReverse }) => {
                                 alt={`${item.location} monument`}
                                 className="monument-icon-mobile"
                                 width="60"
-                                height="48"
+                                height="60"
                             />
                         </div>
                     )}
