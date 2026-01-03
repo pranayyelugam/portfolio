@@ -12,7 +12,7 @@ images_to_optimize = [
     'acadia_1.jpg'
 ]
 
-directory = '/Users/shruthiy/Documents/projects/portfolio/src/Images'
+directory = 'src/Images'
 
 for img_name in images_to_optimize:
     path = os.path.join(directory, img_name)
