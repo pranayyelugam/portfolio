@@ -39,9 +39,15 @@ const CarouselContainer = () => {
         ? Images.filter(img => img.tags && img.tags.includes(selectedTag))
         : Images;
 
+    const dynamicSettings = {
+        ...settings,
+        infinite: visibleImages.length > 1,
+        key: selectedTag // Forces remount when tag changes (already present but redundant explicitly helps)
+    };
+
     return (
         <div className='image-container'>
-            <Slider {...settings} key={selectedTag}> {/* Key forces remount on filter change */}
+            <Slider {...dynamicSettings}>
                 {visibleImages.map((item) => (
                     <div key={item.id} className="slide-item">
                         <img 
