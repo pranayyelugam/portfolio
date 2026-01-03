@@ -32,7 +32,7 @@ const Blog = () => {
     return (
         <section className="content">
             <div className="blog-page">
-                <h1 className="stylish-name" style={{ marginBottom: '2rem' }}>Insights</h1>
+
                 <div className="posts-grid">
                     {posts.map(post => (
                         <Link to={`/blog/${post.slug}`} key={post.slug} className="post-card">
