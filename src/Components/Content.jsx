@@ -20,7 +20,7 @@ const RightContainer = () => {
     return (
         <article className="content-right">
             <p>
-                I work at the intersection of <b>scalable systems engineering</b> and <b>AI research</b>. Recently, I have been working on <b>AutoDiscovery</b>: building the infrastructure and models required to bring analytics from unstructured data.
+                I work at the intersection of <b>scalable systems engineering</b> and <b>AI research</b>. Recently, I have been working on <b>AutoDiscovery</b>: building the infrastructure and models required to bring insights from unstructured data.
                 <br /><br />
                 Currently, I am a Senior Software Engineer at <a href='https://www.verkada.com/'>Verkada</a>, where I architect high-performance distributed systems. 
                 <br /><br />
