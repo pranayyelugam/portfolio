@@ -1,10 +1,8 @@
 # Pranay Yelugam - Portfolio
 
-Personal academic and engineering portfolio website, showcasing work at the intersection of **Scalable Systems Engineering** and **AI Research** (AutoDiscovery).
+Personal website of Pranay Yelugam.
 
-## 🚀 Optimizations & Infrastructure
-
-This project focuses on high performance and clean architecture.
+## 🚀 Performance & Optimizations
 
 ### 🖼️ Image Optimization Pipeline
 - **Automated Processing**: Custom Python script (`optimize_images.py`) automates asset optimization.
@@ -12,17 +10,10 @@ This project focuses on high performance and clean architecture.
 - **Intelligent Resizing**: Images are automatically downscaled (max-width: 300px for icons/profile) to reduce payload size while maintaining visual fidelity.
 - **Explicit Dimensions**: All `<img>` tags have explicit `width` and `height` attributes to prevent **Cumulative Layout Shift (CLS)** and ensure a stable rendering experience.
 
-### ⚡️ Performance
+### ⚡️ Core Performance
 - **Code Splitting**: Heavy components (e.g., Photography) are lazy-loaded to keep the initial bundle size small.
 - **Route-Based Preloading**: Critical assets for upcoming routes can be preloaded on hover.
 - **Zero-Layout Shift**: Strict dimensioning and layout reservation ensure the UI never "jumps" during loading.
-
-### 🎨 Architecture & Theming
-- **Dual-Theme System**: Built with a robust **SCSS** variable system supporting instant toggling between:
-  - `theme-professional`: Clean, academic, minimalist (Paper/Light style).
-  - `theme-futuristic`: Dark, neon-accented, glassmorphism design.
-- **Responsive Design**: Mobile-first architecture with custom breakpoints for seamless rendering on all devices.
-- **Component Design**: Modular React components (`CareerTree`, `Publications`) with isolated SCSS modules.
 
 ## 🛠️ Local Development
 
