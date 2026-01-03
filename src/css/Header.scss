@@ -93,6 +93,11 @@
     padding: 0.5rem 0;
   }
 
+  .hamburger-menu {
+    display: block; /* CRITICAL FIX: Show button on mobile */
+    color: var(--text-primary);
+  }
+
   .desktop-theme-toggle {
     display: none; /* Hide desktop toggle */
   }

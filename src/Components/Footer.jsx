@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { AiOutlineFilePdf, AiFillGithub } from 'react-icons/ai';
-import { FiTwitter } from 'react-icons/fi';
+
 import { GrMail } from 'react-icons/gr';
 import { SiGooglescholar } from 'react-icons/si';
 
@@ -17,9 +17,7 @@ export default class Footer extends Component {
                 <div style={{ marginRight: '1rem'  }}>
                     <a href="https://github.com/pranayyelugam" aria-label="GitHub Profile"><AiFillGithub size="25px" /></a>
                 </div>
-                <div style={{ marginRight: '1rem' }}>
-                    <a href="https://twitter.com/pranaykumar1096" aria-label="Twitter Profile"><FiTwitter size="25px" /></a>
-                </div>
+
                 <div style={{ marginRight: '1rem' }}>
                     <a href="mailto:ypranayraj@gmail.com" aria-label="Email Me"><GrMail size="25px" /></a>
                 </div>

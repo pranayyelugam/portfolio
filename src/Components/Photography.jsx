@@ -26,6 +26,8 @@ const CarouselContainer = () => {
                             src={item.src} 
                             alt={item.alt} 
                             className="img-style"
+                            width="1000"
+                            height="667"
                             style={{
                                 maxWidth: '100%',
                                 width: '100%',

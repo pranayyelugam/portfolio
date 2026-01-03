@@ -82,6 +82,8 @@ const CareerNode = ({ item, isLast, showCountry, isReverse }) => {
                             src={monumentImages[item.monument]} 
                             alt={`${item.location} monument`}
                             className="monument-icon"
+                            width="100"
+                            height="80"
                         />
                     </div>
                 )}
@@ -93,6 +95,8 @@ const CareerNode = ({ item, isLast, showCountry, isReverse }) => {
                         src={countryImages[item.country]} 
                         alt={item.country} 
                         className="country-icon"
+                        width="50"
+                        height="50"
                     />
                 )}
                 <div className="node-connector">
@@ -102,6 +106,17 @@ const CareerNode = ({ item, isLast, showCountry, isReverse }) => {
 
             <div className="node-right">
                 <div className="node-content">
+                    {item.monument && (
+                        <div className="mobile-monument-container">
+                            <img 
+                                src={monumentImages[item.monument]} 
+                                alt={`${item.location} monument`}
+                                className="monument-icon-mobile"
+                                width="60"
+                                height="48"
+                            />
+                        </div>
+                    )}
                     <header className="node-header">
                         <span className="node-year">{item.year}</span>
                         <span className="node-location">{item.location}</span>

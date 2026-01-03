@@ -1,68 +1,52 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Pranay Yelugam - Portfolio
 
-## Available Scripts
+Personal academic and engineering portfolio website, showcasing work at the intersection of **Scalable Systems Engineering** and **AI Research** (AutoDiscovery).
 
-In the project directory, you can run:
+## 🚀 Optimizations & Infrastructure
 
-### `npm start`
+This project focuses on high performance and clean architecture.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 🖼️ Image Optimization Pipeline
+- **Automated Processing**: Custom Python script (`optimize_images.py`) automates asset optimization.
+- **Format Conversion**: All assets are converted to **WebP** for superior compression.
+- **Intelligent Resizing**: Images are automatically downscaled (max-width: 300px for icons/profile) to reduce payload size while maintaining visual fidelity.
+- **Explicit Dimensions**: All `<img>` tags have explicit `width` and `height` attributes to prevent **Cumulative Layout Shift (CLS)** and ensure a stable rendering experience.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### ⚡️ Performance
+- **Code Splitting**: Heavy components (e.g., Photography) are lazy-loaded to keep the initial bundle size small.
+- **Route-Based Preloading**: Critical assets for upcoming routes can be preloaded on hover.
+- **Zero-Layout Shift**: Strict dimensioning and layout reservation ensure the UI never "jumps" during loading.
 
-### `npm test`
+### 🎨 Architecture & Theming
+- **Dual-Theme System**: Built with a robust **SCSS** variable system supporting instant toggling between:
+  - `theme-professional`: Clean, academic, minimalist (Paper/Light style).
+  - `theme-futuristic`: Dark, neon-accented, glassmorphism design.
+- **Responsive Design**: Mobile-first architecture with custom breakpoints for seamless rendering on all devices.
+- **Component Design**: Modular React components (`CareerTree`, `Publications`) with isolated SCSS modules.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠️ Local Development
 
-### `npm run build`
+1. **Install Dependencies**
+   ```bash
+   npm install
+   ```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Start Dev Server**
+   ```bash
+   npm start
+   ```
+   Runs the app in development mode at `http://localhost:5173`.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## 📦 Deployment
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This project uses **GitHub Pages** for hosting.
 
-### `npm run eject`
+To deploy a new version:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+npm run deploy
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This command will automatically:
+1.  Run `npm run build` to generate the production optimized bundle in `/dist`.
+2.  Push the contents of `/dist` to the `gh-pages` branch.

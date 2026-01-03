@@ -62,7 +62,11 @@
                 content: '';
                 position: absolute;
                 top: 0;
-                bottom: -2rem; /* Extend to connect to next node */
+                /* Stop exact at next node's relative top (100% + margin) */
+                /* Actually, simplest is just calc(100% + var(--spacing-md)) relative to content? */
+                /* NO, node-center height varies. */
+                /* position: absolute; top: 0; bottom: -margin; works if parent is relative and full height. */
+                bottom: calc(-1 * var(--spacing-md)); 
                 left: 50%;
                 transform: translateX(-50%);
                 width: 2px;
@@ -78,13 +82,13 @@
             .country-icon {
                 width: 50px;
                 height: auto;
-                opacity: 0.7;
+                opacity: 1;
                 filter: grayscale(100%);
-                mix-blend-mode: multiply;
+                mix-blend-mode: normal;
                 transition: opacity 0.2s ease;
                 margin-bottom: var(--spacing-sm);
                 z-index: 2;
-                background: var(--bg-primary); /* Mask the line behind the icon */
+                background: transparent; /* Remove masking box */
                 padding: 4px;
             }
             
@@ -198,7 +202,7 @@
     /* Last item adjustments to stop the line */
     .career-node:last-child {
         .node-center::before {
-            bottom: 50%; /* Stop line at the dot */
+            display: none; /* Hide dangling line for last item */
         }
     }
 
@@ -244,7 +248,7 @@
 
     /* Increased specificity to override base styles */
     .career-node {
-        .country-icon, .monument-icon {
+        .country-icon, .monument-icon, .monument-icon-mobile {
             filter: grayscale(100%) invert(1) brightness(1.2);
             opacity: 0.9;
             mix-blend-mode: screen; /* Blends black background (inverted white) into dark theme */
@@ -252,10 +256,15 @@
     }
     
     .career-node:hover {
-        .country-icon, .monument-icon {
+        .country-icon, .monument-icon, .monument-icon-mobile {
             opacity: 0.8;
         }
     }
+}
+
+/* Default state for mobile monument: Hidden on Desktop */
+.mobile-monument-container {
+    display: none;
 }
 
 /* Professional theme adjustments */
@@ -284,8 +293,8 @@
     
     .country-icon, .monument-icon {
         filter: grayscale(100%);
-        opacity: 0.6;
-        mix-blend-mode: multiply; /* Blends white background into the page background */
+        opacity: 1; /* Opaque to mask line */
+        mix-blend-mode: normal; 
     }
 }
 
@@ -294,44 +303,143 @@
     .career-tree {
         padding: var(--spacing-sm);
         
-        .career-node {
-            flex-direction: column;
+        /* Explicitly target .reverse to override desktop specificity */
+        /* Shared Timeline Container for Mobile */
+        .career-timeline {
+            position: relative;
             
-            .node-left, .node-right {
-                flex: none;
-                width: 100%;
-                text-align: left;
-                padding: 0;
+            /* THE CONTINUOUS LINE */
+            &::before {
+                content: '';
+                position: absolute;
+                left: 19px; /* Center of 40px .node-center (approx) */
+                top: 2.5rem; /* Start below the first India icon */
+                bottom: 0;
+                width: 2px;
+                background: var(--glass-border);
+                z-index: 0;
+            }
+        }
+
+        /* Explicitly target .reverse to override desktop specificity */
+        .career-node, .career-node.reverse {
+            flex-direction: row; /* Side-by-side: Timeline + Content */
+            align-items: stretch;
+            margin-left: 0;
+            padding-left: 0;
+            border-left: none;
+            
+            /* Clean spacing between cards */
+            margin-bottom: var(--spacing-md);
+            padding-bottom: 0;
+            overflow: visible;
+
+            .node-left {
+                display: none; /* Hide external monument on mobile */
             }
             
             .node-center {
-                display: none; /* Hide complex center timeline on mobile, simplify */
+                display: flex; /* Show timeline line and icons */
+                width: 40px;
+                flex-shrink: 0;
+                flex-direction: column;
+                align-items: center;
+                margin-right: var(--spacing-sm);
+                position: relative;
+                z-index: 1; /* Sit above the shared line */
+                
+                /* NO PER-NODE LINE - Shared line handles it */
+                &::before {
+                    display: none;
+                }
+
+                .country-icon {
+                    width: 35px; /* Slightly smaller for mobile */
+                    padding: 0; 
+                    margin-top: 0; /* Align to top */
+                    margin-bottom: 4px;
+                    position: relative;
+                    z-index: 2; /* Sit on top */
+                    background: var(--bg-primary); /* Mask the line behind */
+                    border-radius: 4px;
+                    border: none;
+                }
+
+                /* Remove Has-Country specific masking since we use bg color now */
+                &.has-country::before {
+                    display: none;
+                }
             }
             
-            /* Simplified mobile view */
-            border-left: 2px solid var(--glass-border);
-            padding-left: var(--spacing-md);
-            margin-left: var(--spacing-md);
+            /* No first-child override needed for line, just maybe start offset */
+            &:first-child .node-center::before {
+                display: none;
+            }
             
+            &:first-child .node-center.has-country::before {
+                display: none;
+            }
+
+            .node-right {
+                flex: 1; /* Take remaining space */
+                padding-left: 0;
+                padding-right: 0;
+                padding-bottom: 0;
+            }
+
             .node-content {
                 text-align: left;
-                padding: var(--spacing-sm);
+                position: relative;
+                margin-bottom: 0; /* Parent handles spacing now */
                 
                 .node-header {
                     justify-content: flex-start;
+                    flex-wrap: wrap;
+                    gap: 8px; /* Ensure space between Year and Location */
+                    
+                    /* Force them to be inline if possible */
+                    .node-year, .node-location {
+                        display: inline-block;
+                    }
+                }
+                
+                .mobile-monument-container {
+                    display: block; 
+                    float: right;
+                    margin-left: 10px;
+                    margin-bottom: 5px;
+                    
+                    .monument-icon-mobile {
+                        width: 60px; 
+                        height: auto;
+                        opacity: 0.7; 
+                        /* mix-blend-mode: multiply; RE MOVED to let theme handle it */
+                    }
                 }
             }
-            
+        }
+
+        /* Reset specific reverse properties */
+        .career-node.reverse {
             .node-right {
-                /* Show monument below text? or hide? */
-                align-items: center;
-                justify-content: center;
-                padding-top: var(--spacing-sm);
-                padding-bottom: var(--spacing-md);
+                text-align: left;
+                padding-right: 0;
                 
-                .monument-icon {
-                   width: 80px; 
+                .node-header {
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    gap: 8px; /* Ensure consistent gap */
                 }
+
+                .node-content {
+                    text-align: left;
+                }
+            }
+
+            .node-left {
+                padding-left: 0;
+                padding-right: 0;
+                justify-content: center;
             }
         }
     }

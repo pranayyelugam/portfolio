@@ -1,49 +1,13 @@
-.site-content {
-    /* text-align: justify; Removed to fix global spacing issues */
-    margin-left: 1rem !important;
-    margin-right: 1rem !important;
-}
+.blog-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-md) var(--spacing-lg);
+    line-height: 1.6;
 
-.box {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-top: 1rem;
-    .box-left,
-    .box-right {
-      display: flex;
-      flex-direction: column;   
+    .stylish-name {
+        font-family: var(--heading-font);
+        font-size: 1.5rem;
+        color: var(--accent-color);
+        margin-bottom: var(--spacing-md);
     }
-    .box-left{
-      margin-left: 3rem;
-      width: 20rem;
-      margin-top: 2rem;
-      .buttons {
-        margin-top: 1rem;
-        display: flex;
-        flex-direction: row;  
-        justify-content: space-between; 
-          .boxleft1{
-            width: 40%;
-          }
-          .boxleft2{
-            width: 40%;
-          }
-      }
-    }
-  .box-right {
-    margin-left: 5rem;
-    width: 60rem;
-    border-color: black;
-    justify-content: center;
-  }
-  .error {
-    position: relative;
-    animation: shake .1s linear;
-    animation-iteration-count: 3;
-}
-@keyframes shake {
-    0% { left: -5px; }
-    100% { right: -5px; }
-}
 }

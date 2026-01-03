@@ -3,11 +3,12 @@ import '../css/Blogs.scss'
 export default class BlogComponent extends Component {
     render() {
         return (
-            <div class="books-container">
-                <h1 className="stylish-name">Coming soon</h1>
-               
-
-            </div>
+            <section className="content">
+                <article className="content-right" style={{ maxWidth: '100%', textAlign: 'left' }}>
+                    <h1 className="stylish-name" style={{ marginBottom: '1rem' }}>Coming soon</h1>
+                    <p>Stay tuned for updates.</p>
+                </article>
+            </section>
         )
     }
 }
