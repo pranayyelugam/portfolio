@@ -1,9 +1,8 @@
 import React, { Component, useState, useEffect } from 'react'
 import Slider from 'react-slick';
-import img from '../Images/acadia_1.jpg'
 import Images from './images';
 
-import '../css/Content.scss'
+import '../css/Photography.scss'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
@@ -16,23 +15,27 @@ const CarouselContainer = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 1000,
+        autoplaySpeed: 3000,
     };
     return (
-        <div style={{
-            margin: "100px",
-            height: "600px",
-            width: "600px",
-            flexDirection: "horizontal",
-            alignContent: "center",
-            justifyContent: "center",
-            
-        }}
-        className='image-container'>
+        <div className='image-container'>
             <Slider {...settings}>
                 {Images.map((item) => (
-                    <div key={item.id}>
-                        <img src={item.src} alt={item.alt} className="img-style"/>
+                    <div key={item.id} className="slide-item">
+                        <img 
+                            src={item.src} 
+                            alt={item.alt} 
+                            className="img-style"
+                            style={{
+                                maxWidth: '100%',
+                                width: '100%',
+                                height: 'auto',
+                                maxHeight: '60vh',
+                                objectFit: 'contain',
+                                display: 'block',
+                                margin: '0 auto'
+                            }}
+                        />
                         <h2 className="title">{item.title}</h2>
                         <p className="description">{item.description}</p>
                     </div>

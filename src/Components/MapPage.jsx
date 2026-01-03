@@ -11,7 +11,7 @@ import ReactTooltip from "react-tooltip";
 import { useHistory } from "react-router-dom";
 
 
-const INDIA_TOPO_JSON = require('../topo.json');
+import INDIA_TOPO_JSON from '../topo.json';
 
 
 function MapPageComponent() {
@@ -48,7 +48,7 @@ function SaveButton(props) {
             .then(data => {
                 console.log(data)
                 // this.props.onSelectLanguage(data.insertedIds[0]);
-                history.push("/portfolio/maps/" + data.insertedIds[0]);
+                history.push("/maps/" + data.insertedIds[0]);
                 localStorage.setItem("userData", JSON.stringify(data));
             });
 

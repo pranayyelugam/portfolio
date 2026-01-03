@@ -1,9 +1,100 @@
 .publications {
-    margin-left: 5rem;
-    margin-right: 5rem;
-    line-height: 8px;
-    padding-top: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: var(--spacing-md) var(--spacing-lg);
+    line-height: 1.6;
+
     .contribution-weight {
         font-weight: 700;
+        color: var(--accent-color);
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        margin-bottom: var(--spacing-md);
+        padding: var(--spacing-md);
+        background: var(--glass-bg);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid var(--glass-border);
+        border-left: 3px solid var(--accent-color);
+        transition: all 0.3s ease;
+
+        &:hover {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 20px rgba(255, 107, 53, 0.1);
+        }
+        
+        a {
+            display: block;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            margin-bottom: 4px;
+            color: var(--accent-color);
+
+            &:hover {
+                text-shadow: 0 0 10px var(--accent-glow);
+            }
+        }
+
+        p {
+            margin: 2px 0 0 0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+
+            &:first-of-type {
+                color: var(--text-primary);
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: var(--spacing-sm) var(--spacing-md);
+
+        li {
+            padding: var(--spacing-md); // Keep decent padding for touch targets
+            margin-bottom: var(--spacing-sm);
+            
+            a {
+                font-size: 1rem; // Ensure link is readable
+                word-break: break-word; // Prevent overflow
+            }
+
+            p {
+                font-size: 0.9rem;
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        padding: var(--spacing-sm);
+
+        li a {
+            font-size: 0.85rem;
+        }
+    }
+}
+
+/* ============================================
+   PROFESSIONAL THEME PUBLICATIONS
+   ============================================ */
+.theme-professional .publications {
+    li {
+        border-radius: 8px;
+        border-left: 3px solid var(--accent-color);
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+
+        a {
+            font-family: inherit;
+            font-weight: 600;
+            text-decoration: underline;
+            text-decoration-color: rgba(26, 54, 93, 0.3);
+        }
     }
 }

@@ -16,7 +16,7 @@ const styles = {
     textAlign: "center"
 };
 
-const INDIA_TOPO_JSON = require('../topo.json');
+import INDIA_TOPO_JSON from '../topo.json';
 
 class MapUser extends React.Component {
     constructor(props) {

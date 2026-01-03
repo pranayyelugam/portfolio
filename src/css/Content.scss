@@ -1,79 +1,223 @@
 .site-content {
-    text-align: justify;
-    margin-left: 5rem;
-    margin-right: 5rem;
+    text-align: left;
+    margin-left: var(--spacing-lg);
+    margin-right: var(--spacing-lg);
+
+    @media (max-width: 768px) {
+        margin-left: var(--spacing-md);
+        margin-right: var(--spacing-md);
+    }
+
+    @media (max-width: 480px) {
+        margin-left: var(--spacing-sm);
+        margin-right: var(--spacing-sm);
+    }
 }
+
 .content {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 4rem;
-  .content-left,
-  .content-right {
     display: flex;
-    flex-direction: column;
-    width: 32rem;
-    padding-top: 2rem;
-  }
-  .content-left {
-    margin-right: 2.5rem;
-    margin-left: 2.5rem;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-xl);
+    gap: var(--spacing-xl);
+    padding: var(--spacing-lg);
+
+    .content-left,
+    .content-right {
+        display: flex;
+        flex-direction: column;
+        max-width: 28rem;
+        width: 100%;
+        padding: var(--spacing-lg);
+        box-sizing: border-box;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .content-left {
+        align-items: center;
+        text-align: center;
+
+        .stylish-name {
+            font-family: var(--heading-font, 'Orbitron', sans-serif);
+            margin: var(--spacing-sm) 0;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        .stylish-name.job-title {
+            font-family: var(--body-font, 'Rajdhani', sans-serif);
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .dp {
+            padding: var(--spacing-md) 0;
+            max-height: 18rem;
+            max-width: 18rem;
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+
+            img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                border: 2px solid var(--accent-color);
+                transition: all 0.3s ease;
+            }
+        }
+    }
+
+    .content-right {
+        padding: var(--spacing-lg);
+        font-size: 1rem;
+        line-height: 1.8;
+        color: var(--text-primary);
+
+        p {
+            margin: 0;
+        }
+
+        b {
+            color: var(--accent-color);
+        }
+    }
+}
+
+/* ============================================
+   FUTURISTIC THEME CONTENT
+   ============================================ */
+.theme-futuristic .content {
+    .content-left,
+    .content-right {
+        clip-path: polygon(
+            0 0,
+            calc(100% - 15px) 0,
+            100% 15px,
+            100% 100%,
+            15px 100%,
+            0 calc(100% - 15px)
+        );
+    }
+
+    .content-left {
+        .stylish-name {
+            letter-spacing: 0.05em;
+
+            &:first-of-type {
+                font-size: 1.5rem;
+                color: var(--accent-color);
+                text-shadow: 0 0 20px var(--accent-glow);
+            }
+        }
+
+        .dp img {
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+    }
+
     .stylish-name {
-      font-family: 'Roboto', sans-serif;
-      justify-content: center;
-      margin: 0 0 0 1.5rem;
-      text-align: left;
-      // text-shadow: 0 1px 1px #fff;
-      line-height: 2rem;
+        font-family: 'Orbitron', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin: 0.5rem 0;
+        
+        &.job-title {
+            font-size: 0.95rem; 
+            letter-spacing: 0.05em;
+            color: var(--accent-color);
+            margin-top: 0;
+            white-space: nowrap; /* Prevent wrapping if possible */
+        }
     }
-    .dp{
-      padding: 1rem 0 0 1rem;
-      height: 20rem;
-      width: 20rem;
-    }
-  }
 
-  .content-right {
-    margin-left: 2.5rem;
-    margin-right: 2.5rem;
-  }
+    .content-right b {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 0.9rem;
+        letter-spacing: 0.05em;
+    }
 }
 
+/* ============================================
+   PROFESSIONAL THEME CONTENT
+   ============================================ */
+.theme-professional .content {
+    .content-left,
+    .content-right {
+        border-radius: 12px;
+        clip-path: none;
+        box-shadow: none;
+    }
 
+    .content-left {
+        .stylish-name {
+            letter-spacing: -0.01em;
 
-/* Extra small devices (phones, up to 480px) */
+            &:first-of-type {
+                font-size: 1.75rem;
+                color: #2d3748; /* Softer dark grey */
+                text-shadow: none;
+                font-weight: 500; /* Reduced weight */
+            }
+        }
+
+        .dp img {
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border instead of solid accent */
+        }
+    }
+
+    .content-right b {
+        font-family: inherit;
+        font-weight: 600;
+    }
+}
+
+/* Mobile devices */
+@media screen and (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-lg);
+        padding: var(--spacing-md);
+
+        .content-left,
+        .content-right {
+            max-width: 100%;
+            padding: var(--spacing-md);
+        }
+
+        .content-left {
+            .stylish-name:first-of-type {
+                font-size: 1.3rem;
+            }
+
+            .dp {
+                max-width: 14rem;
+                max-height: 14rem;
+            }
+        }
+    }
+}
+
 @media screen and (max-width: 480px) {
-  .content-left,
-  .content-right {   
-    width: 20rem !important;
-    margin-bottom: 1rem;
-    margin-left: 1.5rem !important;
-    margin-right: 1.5rem !important;
-  }
-  .site-content {
-    margin-left: 1rem;
-    margin-right: 1rem;
-  }
-   .dp{
-      padding: 1rem 0 0 1rem !important;
-   }
-  
-}
-/* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) and (max-width: 991px) {
-  .content-left,
-  .content-right {   
-    width: 25rem !important;
-  }
-}
-/* tablets/desktops and up ———– */
-@media (min-width: 992px) and (max-width: 1199px) {
-   .content-left,
-  .content-right {   
-    width: 25rem !important;
-  }
-}
-/* large desktops and up ———– */
-@media screen and (min-width: 1200px) {
+    .content {
+        padding: var(--spacing-sm);
+
+        .content-left .dp {
+            max-width: 12rem;
+            max-height: 12rem;
+        }
+
+        .content-right {
+            font-size: 0.95rem;
+        }
+    }
 }

@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+/* ============================================
+   BASE VARIABLES (shared between themes)
+   ============================================ */
+:root {
+  /* Spacing */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ============================================
+   FUTURISTIC THEME
+   ============================================ */
+body.theme-futuristic {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #12121a;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0c0;
+  --accent-color: #ff6b35;
+  --accent-secondary: #ff9f1c;
+  --accent-glow: rgba(255, 107, 53, 0.6);
+  --glass-bg: rgba(18, 18, 26, 0.85);
+  --glass-border: rgba(255, 107, 53, 0.2);
+  --glass-blur: 12px;
+  --heading-font: 'Orbitron', sans-serif;
+  --body-font: 'Rajdhani', sans-serif;
+
+  background-color: var(--bg-primary);
+  background-image: url('../Images/futuristic_bg.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--text-primary);
+  font-family: var(--body-font);
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    letter-spacing: 0.05em;
+  }
+
+  a {
+    color: var(--accent-color);
+    &:hover {
+      color: var(--accent-secondary);
+      text-shadow: 0 0 15px var(--accent-glow);
+    }
+  }
+
+  /* Dark overlay */
+  &::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 10, 15, 0.85);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* Scanlines removed for performance */
+}
+
+/* ============================================
+   PROFESSIONAL THEME
+   ============================================ */
+body.theme-professional {
+  --bg-primary: #fafafa;
+  --bg-secondary: #ffffff;
+  --text-primary: #1a202c;
+  --text-secondary: #4a5568;
+  --accent-color: #1a365d;
+  --accent-secondary: #2c5282;
+  --accent-glow: rgba(26, 54, 93, 0.2);
+  --glass-bg: rgba(255, 255, 255, 0.95);
+  --glass-border: rgba(26, 54, 93, 0.15);
+  --glass-blur: 8px;
+  --heading-font: 'Source Serif 4', Georgia, serif;
+  --body-font: 'Inter', -apple-system, sans-serif;
+
+  background-color: var(--bg-primary);
+  background-image: none;
+  color: var(--text-primary);
+  font-family: var(--body-font);
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  a {
+    color: var(--accent-color);
+    text-decoration: underline;
+    text-decoration-color: rgba(26, 54, 93, 0.3);
+    text-underline-offset: 3px;
+    
+    &:hover {
+      color: var(--accent-secondary);
+      text-decoration-color: var(--accent-secondary);
+    }
+  }
+
+  /* Remove futuristic effects */
+  &::after, &::before {
+    display: none;
+  }
+}
+
+/* ============================================
+   SHARED BASE STYLES
+   ============================================ */
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+  min-height: 100vh;
+  position: relative;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+a {
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+/* ============================================
+   ANIMATIONS (futuristic only)
+   ============================================ */
+@keyframes neonPulse {
+  0%, 100% {
+    box-shadow: 0 0 5px var(--accent-color), 0 0 10px var(--accent-color), 0 0 20px var(--accent-glow);
+  }
+  50% {
+    box-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color), 0 0 40px var(--accent-glow);
+  }
+}
+
+@keyframes glowText {
+  0%, 100% {
+    text-shadow: 0 0 10px var(--accent-glow);
+  }
+  50% {
+    text-shadow: 0 0 20px var(--accent-glow), 0 0 30px var(--accent-color);
+  }
+}

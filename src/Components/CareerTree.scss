@@ -1,0 +1,338 @@
+.career-tree {
+    padding: var(--spacing-lg);
+    max-width: 1200px; /* Increased max-width for 3-column layout */
+    margin: var(--spacing-xl) auto;
+
+    .career-title {
+        text-align: center;
+        font-size: 1.75rem;
+        margin-bottom: var(--spacing-xl);
+        color: var(--text-primary);
+    }
+
+    .career-timeline {
+        position: relative;
+        /* The main vertical line is now the "center" of the timeline */
+        /* We can use the ::before pseudo-element on the timeline relative to the center column */
+    }
+
+    .career-node {
+        display: flex;
+        align-items: stretch; /* Stretch to fill height */
+        margin-bottom: var(--spacing-md);
+        position: relative;
+        width: 100%;
+
+        /* Left Column: Monument */
+        .node-left {
+            flex: 1;
+            padding-right: var(--spacing-lg);
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-end; /* Align monuments to the right (near the center) */
+
+            .monument-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding-top: var(--spacing-md);
+            }
+
+            .monument-icon {
+                width: 100px;
+                height: auto;
+                opacity: 0.6;
+                filter: grayscale(100%);
+                mix-blend-mode: multiply;
+                transition: opacity 0.3s ease, transform 0.3s ease;
+            }
+        }
+
+        /* Center Column: Line and Icons */
+        .node-center {
+            width: 80px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            
+            /* Continuous Line */
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: -2rem; /* Extend to connect to next node */
+                left: 50%;
+                transform: translateX(-50%);
+                width: 2px;
+                background: var(--glass-border);
+                z-index: 0;
+            }
+
+            /* Break line for country icon */
+            &.has-country::before {
+                top: 55px; /* Gap for icon */
+            }
+
+            .country-icon {
+                width: 50px;
+                height: auto;
+                opacity: 0.7;
+                filter: grayscale(100%);
+                mix-blend-mode: multiply;
+                transition: opacity 0.2s ease;
+                margin-bottom: var(--spacing-sm);
+                z-index: 2;
+                background: var(--bg-primary); /* Mask the line behind the icon */
+                padding: 4px;
+            }
+            
+            .node-connector {
+                position: relative;
+                z-index: 2;
+                margin-top: var(--spacing-sm);
+                
+                .node-dot {
+                    display: none; /* Removed as requested */
+                }
+            }
+        }
+
+        /* Right Column: Content (Text) */
+        .node-right {
+            flex: 1;
+            padding-left: var(--spacing-lg);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            text-align: left;
+        }
+
+        /* Hover Effects */
+        &:hover {
+            .country-icon {
+                opacity: 1;
+            }
+            
+            .monument-icon {
+                opacity: 0.9;
+                /* Removed transform scale to prevent stacking context issues with mix-blend-mode */
+            }
+            
+            .node-dot {
+                background: var(--accent-color);
+                box-shadow: 0 0 15px var(--accent-glow);
+            }
+        }
+
+        /* Content Styling */
+        .node-content {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border); // Keeping border for career cards as they are distinct items, or should I remove it too? 
+            /* Let's keep the career cards slightly distinctive but minimal */
+            padding: var(--spacing-md);
+            border-radius: 8px; /* Consistent radius */
+            transition: border-color 0.2s ease;
+            position: relative;
+            width: 100%;
+
+            &:hover {
+                border-color: var(--accent-color);
+            }
+
+            .node-header {
+                display: flex;
+                justify-content: space-between; /* Changed from flex-end to space-between */
+                align-items: center;
+                gap: 8px;
+                margin-bottom: var(--spacing-sm);
+                flex-wrap: wrap;
+            }
+
+            .node-year {
+                font-size: 0.8rem;
+                font-weight: 600;
+                color: var(--accent-color);
+                padding: 2px 8px;
+                background: rgba(255, 107, 53, 0.1);
+                border-radius: 4px;
+            }
+
+            .node-location {
+                font-size: 0.75rem;
+                color: var(--text-secondary);
+            }
+
+            .node-title {
+                margin: 0 0 2px 0;
+                font-size: 1.1rem;
+                color: var(--text-primary);
+            }
+
+            .node-org {
+                margin: 0 0 var(--spacing-sm) 0;
+                font-size: 0.95rem;
+                color: var(--text-secondary);
+                font-weight: 500;
+            }
+
+            .node-description {
+                margin: 0;
+                font-size: 0.9rem;
+                color: var(--text-secondary);
+                line-height: 1.5;
+            }
+        }
+
+        /* Color Coding */
+        &.education .node-dot {
+            border-color: var(--accent-color);
+        }
+
+        &.work .node-dot {
+            border-color: #22c55e;
+        }
+    }
+
+    /* Last item adjustments to stop the line */
+    .career-node:last-child {
+        .node-center::before {
+            bottom: 50%; /* Stop line at the dot */
+        }
+    }
+
+    /* Alternating Layout (Zig-Zag) */
+    .career-node.reverse {
+        flex-direction: row-reverse;
+
+        /* Left Column (now on right visually) - Monument */
+        .node-left {
+            padding-right: 0;
+            padding-left: var(--spacing-lg);
+            justify-content: flex-start; /* Align monument to left (towards center) */
+        }
+
+        /* Right Column (now on left visually) - Content */
+        .node-right {
+            padding-left: 0;
+            padding-right: var(--spacing-lg);
+            text-align: right;
+            
+
+
+            .node-content {
+                /* Ensure text alignment propagates if overridden */
+                text-align: right;
+            }
+
+            .node-header {
+                /* Flip order for right alignment */
+                flex-direction: row-reverse; 
+            }
+        }
+    }
+}
+
+/* Futuristic theme specific adjustments */
+.theme-futuristic .career-tree {
+    .node-content {
+        clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+        background: rgba(18, 18, 26, 0.6);
+        border: 1px solid var(--glass-border);
+    }
+
+    /* Increased specificity to override base styles */
+    .career-node {
+        .country-icon, .monument-icon {
+            filter: grayscale(100%) invert(1) brightness(1.2);
+            opacity: 0.9;
+            mix-blend-mode: screen; /* Blends black background (inverted white) into dark theme */
+        }
+    }
+    
+    .career-node:hover {
+        .country-icon, .monument-icon {
+            opacity: 0.8;
+        }
+    }
+}
+
+/* Professional theme adjustments */
+.theme-professional .career-tree {
+    .node-content {
+        background: transparent;
+        border: none;
+        box-shadow: none; /* Make career text blend in too if desired, or keep as cards? */
+        /* User said "content boxes" meaning top area. For career tree, usually cards are better. 
+           But let's stick to the cleaner look requested globally: minimal borders. */
+        border-radius: 8px;
+        text-align: left;
+    }
+    
+    /* Let's try to keep the cards but make them very subtle */
+    .node-content {
+         background: rgba(255, 255, 255, 0.5);
+         border: 1px solid rgba(0,0,0,0.05);
+         padding: var(--spacing-md);
+    }
+
+    .node-year {
+        background: rgba(26, 54, 93, 0.08);
+        color: var(--accent-color);
+    }
+    
+    .country-icon, .monument-icon {
+        filter: grayscale(100%);
+        opacity: 0.6;
+        mix-blend-mode: multiply; /* Blends white background into the page background */
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .career-tree {
+        padding: var(--spacing-sm);
+        
+        .career-node {
+            flex-direction: column;
+            
+            .node-left, .node-right {
+                flex: none;
+                width: 100%;
+                text-align: left;
+                padding: 0;
+            }
+            
+            .node-center {
+                display: none; /* Hide complex center timeline on mobile, simplify */
+            }
+            
+            /* Simplified mobile view */
+            border-left: 2px solid var(--glass-border);
+            padding-left: var(--spacing-md);
+            margin-left: var(--spacing-md);
+            
+            .node-content {
+                text-align: left;
+                padding: var(--spacing-sm);
+                
+                .node-header {
+                    justify-content: flex-start;
+                }
+            }
+            
+            .node-right {
+                /* Show monument below text? or hide? */
+                align-items: center;
+                justify-content: center;
+                padding-top: var(--spacing-sm);
+                padding-bottom: var(--spacing-md);
+                
+                .monument-icon {
+                   width: 80px; 
+                }
+            }
+        }
+    }
+}

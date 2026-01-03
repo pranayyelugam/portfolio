@@ -1,12 +1,240 @@
 .image-container {
-    padding: 2.5rem;
-    .title {
-        word-spacing: normal;
-        font-weight: 1;
+    padding: var(--spacing-xl) var(--spacing-lg);
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    .page-title {
+        text-align: center;
+        font-size: 2.5rem;
+        font-family: 'Orbitron', sans-serif;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: var(--spacing-xl);
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        animation: glowText 3s ease-in-out infinite;
     }
+    
+    .title {
+        font-family: 'Orbitron', sans-serif;
+        font-weight: 500;
+        font-size: 1.3rem;
+        text-align: center;
+        margin-top: var(--spacing-lg);
+        color: var(--accent-color);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        text-shadow: 0 0 15px var(--accent-glow);
+    }
+
+    .description {
+        text-align: center;
+        color: var(--text-secondary);
+        margin-top: var(--spacing-sm);
+        font-size: 1rem;
+        font-family: 'Rajdhani', sans-serif;
+    }
+
+    .slide-item {
+        padding: var(--spacing-md);
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+    }
+
     .img-style {
-        height: fit-content;
-        width: fit-content;
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        max-height: 65vh;
         object-fit: contain;
+        display: block;
+        margin: 0 auto;
+        border: 2px solid var(--accent-color);
+        box-shadow: 0 0 30px var(--accent-glow), 0 10px 40px rgba(0, 0, 0, 0.5);
+        
+        /* Futuristic corner cuts */
+        clip-path: polygon(
+            0 0,
+            calc(100% - 20px) 0,
+            100% 20px,
+            100% 100%,
+            20px 100%,
+            0 calc(100% - 20px)
+        );
+    }
+
+    // Override slick carousel styles
+    .slick-slider {
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .slick-track {
+        display: flex;
+        align-items: center;
+    }
+
+    .slick-slide {
+        max-width: 100%;
+        
+        > div {
+            max-width: 100%;
+        }
+    }
+
+    .slick-list {
+        overflow: hidden;
+        max-width: 100%;
+    }
+
+    .slick-prev,
+    .slick-next {
+        z-index: 10;
+        width: 50px;
+        height: 50px;
+        background: var(--glass-bg);
+        border: 1px solid var(--accent-color);
+        border-radius: 0;
+        clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: var(--accent-color);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        &:before {
+            color: var(--accent-color);
+            font-size: 20px;
+            opacity: 1;
+        }
+
+        &:hover:before {
+            color: var(--bg-primary);
+        }
+    }
+
+    .slick-prev {
+        left: 20px;
+    }
+
+    .slick-next {
+        right: 20px;
+    }
+
+    .slick-dots {
+        bottom: -40px;
+
+        li {
+            margin: 0 5px;
+
+            button:before {
+                color: var(--text-secondary);
+                font-size: 10px;
+                opacity: 0.5;
+            }
+
+            &.slick-active button:before {
+                color: var(--accent-color);
+                opacity: 1;
+                text-shadow: 0 0 10px var(--accent-glow);
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: var(--spacing-lg) var(--spacing-md);
+
+        .page-title {
+            font-size: 1.75rem;
+            letter-spacing: 0.1em;
+        }
+
+        .title {
+            font-size: 1.1rem;
+        }
+
+        .img-style {
+            max-height: 50vh;
+        }
+
+        .slick-prev {
+            left: 10px;
+        }
+
+        .slick-next {
+            right: 10px;
+        }
+
+        .slick-prev,
+        .slick-next {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        padding: var(--spacing-md) var(--spacing-sm);
+
+        .page-title {
+            font-size: 1.5rem;
+        }
+
+        .title {
+            font-size: 1rem;
+        }
+
+        .description {
+            font-size: 0.9rem;
+        }
+
+        .img-style {
+            max-height: 40vh;
+        }
+
+        .slick-prev,
+        .slick-next {
+            width: 35px;
+            height: 35px;
+
+            &:before {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+/* Professional / Light Theme Overrides */
+.theme-professional .image-container {
+    .img-style {
+        border: 1px solid rgba(0,0,0,0.1);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        clip-path: none;
+        border-radius: 12px;
+    }
+    
+    .slick-prev, .slick-next {
+        background: #ffffff; /* Solid white to avoid transparency artifacts */
+        border: 1px solid #e2e8f0; /* Clean border */
+        clip-path: none;
+        border-radius: 50%;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Softer, more diffuse shadow */
+        
+        &:before {
+            color: var(--text-primary);
+        }
+        
+        &:hover {
+            background: var(--accent-color);
+            &:before { color: white; }
+        }
+    }
+    
+    .page-title {
+        animation: none;
     }
 }
