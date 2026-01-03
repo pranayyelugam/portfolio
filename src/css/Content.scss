@@ -58,7 +58,7 @@
 
         .dp {
             padding: var(--spacing-md) 0;
-            max-height: 18rem;
+            max-height: none;
             max-width: 18rem;
             width: 100%;
             height: auto;
@@ -205,7 +205,7 @@
 
             .dp {
                 max-width: 14rem;
-                max-height: 14rem;
+                max-height: none;
             }
         }
     }
