@@ -1,1 +1,0 @@
-import{j as o}from"./index-CfPyTkDe.js";import{b as s}from"./vendor-YrGeLMaW.js";import"./ui-CT4axPNR.js";class a extends s.Component{render(){return o.jsx("div",{class:"books-container",children:o.jsx("h1",{className:"stylish-name",children:"Coming soon"})})}}export{a as default};
