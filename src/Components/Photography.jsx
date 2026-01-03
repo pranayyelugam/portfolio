@@ -28,15 +28,7 @@ const CarouselContainer = () => {
                             className="img-style"
                             width="1000"
                             height="667"
-                            style={{
-                                maxWidth: '100%',
-                                width: '100%',
-                                height: 'auto',
-                                maxHeight: '60vh',
-                                objectFit: 'contain',
-                                display: 'block',
-                                margin: '0 auto'
-                            }}
+
                         />
                         <h2 className="title">{item.title}</h2>
                         <p className="description">{item.description}</p>
