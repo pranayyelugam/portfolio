@@ -8,7 +8,7 @@ const projects = [
         title: 'Reasoning with Generative Language Models and Knowledge Graphs for Common Sense Question Answering',
         link: 'https://github.com/pranayyelugam/685_Projects',
         description: "Recent work has shown that utilizing both sources of knowledge yields impressive results for multi-choice question answering. Although active research is going on in combining LLMs and KGs for commonsense reasoning, there is a shortage of solutions that delve into combining Generative Language Models (GLMs) and Knowledge Graphs (GLM+KG) for commonsense QA. In this paper, we tackle this problem by combining implicit knowledge from a generative model (GPT-2) and explicit knowledge from KGs (ConceptNet).",
-        tags: ["NLP", "Neuro-Symbolic AI"]
+        tags: ["NLP", "Knowledge Graphs"]
     },
     {
         id: 2,
