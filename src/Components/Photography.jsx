@@ -16,6 +16,12 @@ const CarouselContainer = () => {
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: "unslick"
+            }
+        ]
     };
     return (
         <div className='image-container'>

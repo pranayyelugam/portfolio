@@ -162,6 +162,23 @@
             max-height: 50vh;
         }
 
+        /* Vertical Stack Styles for Mobile (Unslicked) */
+        .slide-item {
+            margin-bottom: var(--spacing-xl);
+            display: flex;
+            flex-direction: column;
+            width: 100% !important; /* Force full width when unslicked */
+            align-items: center; /* Strict centering for images */
+            text-align: center; /* Strict centering for text */
+        }
+
+        /* Hide empty div that slick sometimes leaves behind */
+        .slick-track, .slick-list {
+            display: block;
+            width: 100%;
+            transform: none !important;
+        }
+
         .slick-prev {
             left: 0px;
         }
@@ -172,8 +189,12 @@
 
         .slick-prev,
         .slick-next {
-            width: 40px;
             height: 40px;
+            display: none !important; /* Hide arrows in list view */
+        }
+
+        .slick-dots {
+            display: none !important; /* Hide dots in list view */
         }
     }
 
