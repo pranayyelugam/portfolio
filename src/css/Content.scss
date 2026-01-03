@@ -4,8 +4,8 @@
     margin-right: var(--spacing-lg);
 
     @media (max-width: 768px) {
-        margin-left: var(--spacing-md);
-        margin-right: var(--spacing-md);
+        margin-left: 0;
+        margin-right: 0;
     }
 
     @media (max-width: 480px) {
