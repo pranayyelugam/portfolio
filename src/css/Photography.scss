@@ -164,12 +164,13 @@
 
         /* Vertical Stack Styles for Mobile (Unslicked) */
         .slide-item {
-            margin-bottom: var(--spacing-xl);
+            margin-bottom: var(--spacing-md); /* Reduced from lg */
+            padding-bottom: 0; /* Remove bottom padding to pull text closer to next image */
             display: flex;
             flex-direction: column;
-            width: 100% !important; /* Force full width when unslicked */
-            align-items: center; /* Strict centering for images */
-            text-align: center; /* Strict centering for text */
+            width: 100% !important; 
+            align-items: center; 
+            text-align: center; 
         }
 
         /* Hide empty div that slick sometimes leaves behind */
