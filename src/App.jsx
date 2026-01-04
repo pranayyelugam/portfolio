@@ -14,12 +14,11 @@ import {
 } from "react-router-dom";
 
 // Lazy load components
+// Lazy load components
 const PublicationComponenet = lazy(() => import('./Components/Publications'));
 const ProjectsComponent = lazy(() => import('./Components/Projects'));
 const BlogComponent = lazy(() => import('./Components/Blog'));
 const BlogPostComponent = lazy(() => import('./Components/BlogPost'));
-const GalleryAudit = lazy(() => import('./Components/GalleryAudit'));
-const NamingHelper = lazy(() => import('./Components/NamingHelper'));
 
 // Use lazyWithPreload for Photography page to enable intent-based prefetching
 const PhotographyContainer = lazyWithPreload(() => import('./Components/Photography'));
@@ -62,18 +61,11 @@ function App() {
                       <BlogPostComponent />
                     </Route>
 
-                    <Route path="/naming-helper">
-                      <NamingHelper />
-                    </Route>
                     <Route path="/publications">
                       <PublicationComponenet />
                     </Route>
                     <Route exact path="/photography">
                       <PhotographyContainer />
-                    </Route>
-
-                    <Route path="/audit">
-                       <GalleryAudit />
                     </Route>
                     <Route exact path="/">
                       <Content />

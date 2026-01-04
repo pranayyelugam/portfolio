@@ -24,7 +24,7 @@ import Gallery25 from '../Images/gallery_25.webp';
 import Gallery26 from '../Images/gallery_26.webp';
 import Gallery27 from '../Images/gallery_27.webp';
 import Gallery29 from '../Images/gallery_29.webp';
-import Gallery30 from '../Images/gallery_30.webp';
+
 
 
 import Gallery31 from '../Images/gallery_31.webp';
@@ -266,14 +266,7 @@ const Images = [
         description: "",
         tags: ['Photography', '2023']
     },
-    {
-        id: 70, 
-        src: Gallery30,
-        alt: "Captured in 2023",
-        title: "Some ladies",
-        description: "",
-        tags: ['Photography', '2023']
-    }
+
 ,
     {
         id: 231, 
