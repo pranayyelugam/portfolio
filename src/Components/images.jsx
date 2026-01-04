@@ -157,7 +157,7 @@ const Images = [
         id: 24, 
         src: Gallery15,
         alt: "Captured on Sep 18, 2022",
-        title: "Crazy lights. Thought was it actual flowers. Duped",
+        title: "Crazy lights. Thought it was actual flowers.",
         description: "",
         tags: ['Photography', '2022']
     },
