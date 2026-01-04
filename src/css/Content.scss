@@ -27,7 +27,8 @@
     .content-right {
         display: flex;
         flex-direction: column;
-        max-width: 28rem;
+        flex: 1 1 300px;
+        max-width: 32rem; 
         width: 100%;
         padding: var(--spacing-lg);
         box-sizing: border-box;
@@ -185,7 +186,7 @@
 }
 
 /* Mobile devices */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     .content {
         flex-direction: column;
         align-items: center;

@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import './App.scss';
 import Content from './Components/Content'; // Keep Home eager for LCP
+
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import { ThemeProvider } from './context/ThemeContext';
@@ -17,6 +18,8 @@ const PublicationComponenet = lazy(() => import('./Components/Publications'));
 const ProjectsComponent = lazy(() => import('./Components/Projects'));
 const BlogComponent = lazy(() => import('./Components/Blog'));
 const BlogPostComponent = lazy(() => import('./Components/BlogPost'));
+const GalleryAudit = lazy(() => import('./Components/GalleryAudit'));
+const NamingHelper = lazy(() => import('./Components/NamingHelper'));
 
 // Use lazyWithPreload for Photography page to enable intent-based prefetching
 const PhotographyContainer = lazyWithPreload(() => import('./Components/Photography'));
@@ -58,11 +61,19 @@ function App() {
                     <Route path="/blog/:slug">
                       <BlogPostComponent />
                     </Route>
+
+                    <Route path="/naming-helper">
+                      <NamingHelper />
+                    </Route>
                     <Route path="/publications">
                       <PublicationComponenet />
                     </Route>
                     <Route exact path="/photography">
                       <PhotographyContainer />
+                    </Route>
+
+                    <Route path="/audit">
+                       <GalleryAudit />
                     </Route>
                     <Route exact path="/">
                       <Content />

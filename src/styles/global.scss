@@ -33,20 +33,18 @@ body.theme-futuristic {
   --glass-bg: rgba(18, 18, 26, 0.85);
   --glass-border: rgba(255, 107, 53, 0.2);
   --glass-blur: 12px;
-  --heading-font: 'Orbitron', sans-serif;
-  --body-font: 'Rajdhani', sans-serif;
+  --heading-font: 'Inter', sans-serif;
+  --body-font: 'Inter', sans-serif;
 
   background-color: var(--bg-primary);
-  background-image: url('../Images/futuristic_bg.webp');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  background-image: none;
   color: var(--text-primary);
   font-family: var(--body-font);
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--heading-font);
-    letter-spacing: 0.05em;
+    letter-spacing: -0.01em;
+    font-weight: 600;
   }
 
   a {
@@ -57,17 +55,9 @@ body.theme-futuristic {
     }
   }
 
-  /* Dark overlay */
+  /* Overlay removed for cleaner look */
   &::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(10, 10, 15, 0.85);
-    pointer-events: none;
-    z-index: -1;
+    display: none;
   }
 
   /* Scanlines removed for performance */

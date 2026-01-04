@@ -1,268 +1,142 @@
-.image-container {
-    padding: var(--spacing-md) var(--spacing-lg);
-    max-width: 1000px;
-    width: 100%;
+.photography-page {
+    padding: 2rem;
+    max-width: 1400px;
     margin: 0 auto;
-    overflow: hidden;
-    box-sizing: border-box;
 
-    .page-title {
+    .section-title {
         text-align: center;
-        font-size: 2.5rem;
-        font-family: 'Orbitron', sans-serif;
-        font-weight: 600;
+        margin-bottom: 2rem;
+        font-family: var(--heading-font);
         color: var(--text-primary);
-        margin-bottom: var(--spacing-md);
-        text-transform: uppercase;
-        letter-spacing: 0.2em;
-        animation: glowText 3s ease-in-out infinite;
-    }
-    
-    .title {
-        font-family: 'Orbitron', sans-serif;
-        font-weight: 500;
-        font-size: 1.3rem;
-        text-align: center;
-        margin-top: var(--spacing-lg);
-        color: var(--accent-color);
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        text-shadow: 0 0 15px var(--accent-glow);
     }
 
-    .description {
+    .filter-status {
         text-align: center;
+        margin-bottom: 1.5rem;
         color: var(--text-secondary);
-        margin-top: var(--spacing-sm);
-        font-size: 1rem;
-        font-family: 'Rajdhani', sans-serif;
-    }
-
-    .slide-item {
-        padding: var(--spacing-md);
-        display: flex !important;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .img-style {
-        max-width: 100%;
-        width: 100%;
-        height: auto;
-        max-height: calc(100vh - 500px);
-        object-fit: contain;
-        display: block;
-        margin: 0 auto;
-        border: 2px solid var(--accent-color);
-        box-shadow: 0 0 30px var(--accent-glow), 0 10px 40px rgba(0, 0, 0, 0.5);
+        min-height: 25px;
         
-        /* Futuristic corner cuts removed to prevent cropping */
-        /* clip-path: polygon(
-            0 0,
-            calc(100% - 20px) 0,
-            100% 20px,
-            100% 100%,
-            20px 100%,
-            0 calc(100% - 20px)
-        ); */
-        clip-path: none;
-        border-radius: 8px; /* Added slight radius for polish */
-    }
-
-    // Override slick carousel styles
-    .slick-slider {
-        max-width: 100%;
-        overflow: hidden;
-    }
-
-    .slick-track {
-        display: flex;
-        align-items: center;
-    }
-
-    .slick-slide {
-        max-width: 100%;
-        
-        > div {
-            max-width: 100%;
-        }
-    }
-
-    .slick-list {
-        overflow: hidden;
-        max-width: 100%;
-    }
-
-    .slick-prev,
-    .slick-next {
-        z-index: 10;
-        width: 50px;
-        height: 50px;
-        background: var(--glass-bg);
-        border: 1px solid var(--accent-color);
-        border-radius: 0;
-        clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
-        transition: all 0.3s ease;
-
-        &:hover {
-            background: var(--accent-color);
-            box-shadow: 0 0 20px var(--accent-glow);
-        }
-
-        &:before {
+        .clear-filter {
+            margin-left: 1rem;
+            background: none;
+            border: 1px solid var(--accent-color);
             color: var(--accent-color);
-            font-size: 20px;
-            opacity: 1;
-        }
+            padding: 0.2rem 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
 
-        &:hover:before {
-            color: var(--bg-primary);
-        }
-    }
-
-    .slick-prev {
-        left: 5px;
-    }
-
-    .slick-next {
-        right: 5px;
-    }
-
-    .slick-dots {
-        bottom: -40px;
-
-        li {
-            margin: 0 5px;
-
-            button:before {
-                color: var(--text-secondary);
-                font-size: 10px;
-                opacity: 0.5;
+            &:hover {
+                background: var(--accent-color);
+                color: white;
             }
+        }
+    }
 
-            &.slick-active button:before {
-                color: var(--accent-color);
+    /* Classic CSS Columns Layout (Pinterest Style) */
+    .gallery-grid {
+        column-count: 3;
+        column-gap: 1.5rem;
+        
+        /* iPad Portrait / Large Mobile */
+        @media (max-width: 768px) {
+            column-count: 2;
+        }
+
+        /* Smallest Mobile only */
+        @media (max-width: 480px) {
+            column-count: 1;
+        }
+    }
+
+    .gallery-item {
+        break-inside: avoid; /* Prevents split across columns */
+        margin-bottom: 1.5rem; /* Gap between items in column */
+        border-radius: 16px;
+        overflow: hidden;
+        cursor: pointer;
+        position: relative;
+        background: transparent;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transform-origin: center center;
+        border: 1px solid transparent; 
+        width: 100%; /* Fill the column */
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block; 
+            border-radius: 16px;
+            transition: transform 0.5s ease;
+        }
+
+        // "Bubble Up" Effect
+        &:hover {
+            z-index: 10; 
+            transform: scale(1.02); 
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); 
+            border-color: rgba(255, 255, 255, 0.1);
+
+            .gallery-overlay {
                 opacity: 1;
-                text-shadow: 0 0 10px var(--accent-glow);
             }
         }
-    }
 
-    @media (max-width: 768px) {
-        padding: var(--spacing-lg) var(--spacing-md);
-
-        .page-title {
-            font-size: 1.75rem;
-            letter-spacing: 0.1em;
-        }
-
-        .title {
-            font-size: 1.1rem;
-        }
-
-        .img-style {
-            max-height: 50vh;
-        }
-
-        /* Vertical Stack Styles for Mobile (Unslicked) */
-        .slide-item {
-            margin-bottom: var(--spacing-md); /* Reduced from lg */
-            padding-bottom: 0; /* Remove bottom padding to pull text closer to next image */
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
             display: flex;
             flex-direction: column;
-            width: 100% !important; 
-            align-items: center; 
-            text-align: center; 
-        }
+            justify-content: flex-end;
+            padding: 1.5rem;
+            color: white;
+            pointer-events: none; 
+            
+            * {
+                pointer-events: auto;
+            }
 
-        /* Hide empty div that slick sometimes leaves behind */
-        .slick-track, .slick-list {
-            display: block;
-            width: 100%;
-            transform: none !important;
-        }
+            .overlay-title {
+                font-size: 1.2rem;
+                margin-bottom: 0.5rem;
+                font-family: var(--heading-font);
+                font-weight: 600;
+                text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            }
 
-        .slick-prev {
-            left: 0px;
-        }
+            .overlay-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
 
-        .slick-next {
-            right: 0px;
-        }
+                .tag-pill.mini {
+                    font-size: 0.7rem;
+                    padding: 0.15rem 0.6rem;
+                    background: rgba(255,255,255,0.2);
+                    border: 1px solid rgba(255,255,255,0.4);
+                    color: white;
+                    border-radius: 99px;
+                    backdrop-filter: blur(4px);
+                    cursor: pointer;
+                    transition: all 0.2s;
 
-        .slick-prev,
-        .slick-next {
-            height: 40px;
-            display: none !important; /* Hide arrows in list view */
-        }
+                    &:hover {
+                        background: white;
+                        color: black;
+                    }
 
-        .slick-dots {
-            display: none !important; /* Hide dots in list view */
-        }
-    }
-
-    @media (max-width: 480px) {
-        padding: var(--spacing-md) var(--spacing-sm);
-
-        .page-title {
-            font-size: 1.5rem;
-        }
-
-        .title {
-            font-size: 1rem;
-        }
-
-        .description {
-            font-size: 0.9rem;
-        }
-
-        .img-style {
-            max-height: 40vh;
-        }
-
-        .slick-prev,
-        .slick-next {
-            width: 35px;
-            height: 35px;
-
-            &:before {
-                font-size: 16px;
+                    &.active {
+                        background: var(--accent-color);
+                        border-color: var(--accent-color);
+                    }
+                }
             }
         }
-    }
-}
-
-/* Professional / Light Theme Overrides */
-.theme-professional .image-container {
-    .img-style {
-        border: 1px solid rgba(0,0,0,0.1);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        clip-path: none;
-        border-radius: 12px;
-    }
-    
-    .slick-prev, .slick-next {
-        background: rgba(255, 255, 255, 0.25); /* Subtle glass effect */
-        border: 1px solid rgba(255, 255, 255, 0.4); 
-        clip-path: none;
-        border-radius: 50%;
-        box-shadow: none; /* No cutout shadow */
-        backdrop-filter: blur(4px); /* Modern glass effect */
-        -webkit-backdrop-filter: blur(4px);
-        
-        &:before {
-            color: var(--text-primary);
-            opacity: 0.7; /* Softer icon */
-        }
-        
-        &:hover {
-            background: rgba(255, 255, 255, 0.8); /* Solid on interaction */
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            &:before { color: var(--accent-color); opacity: 1; }
-        }
-    }
-    
-    .page-title {
-        animation: none;
     }
 }
