@@ -7,7 +7,7 @@ export default defineConfig({
   define: {
     'process.env': {}
   },
-  base: '/portfolio/',
+  base: '/',
   plugins: [
     react(),
     ViteWebfontDownload(),

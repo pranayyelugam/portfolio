@@ -44,7 +44,7 @@ function App() {
   return (
     <ThemeProvider>
       <div className="App">
-        <Router basename="/portfolio">
+        <Router basename="/">
           <div className="app-layout">
             <Header />
             <main className="dynamic-area">
