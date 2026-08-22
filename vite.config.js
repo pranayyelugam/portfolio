@@ -17,7 +17,7 @@ export default defineConfig({
       manifest: {
         name: 'Pranay Yelugam Portfolio',
         short_name: 'Pranay Portfolio',
-        description: 'Portfolio of Pranay Yelugam - Senior Software Engineer',
+        description: 'Portfolio of Pranay Yelugam - Software Engineer',
         theme_color: '#0a0a0f',
         icons: [
           {
