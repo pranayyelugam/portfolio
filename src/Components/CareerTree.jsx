@@ -9,24 +9,24 @@ import goldenGateImg from '../Images/golden_gate.webp';
 
 const careerData = [
     {
-        year: '2014-2018',
-        title: 'Bachelor of Technology',
-        organization: 'IIIT Allahabad',
-        location: 'Allahabad, India',
-        type: 'education',
-        description: 'Laid the foundation for my journey into computer science and research.',
-        country: 'india',
-        monument: 'tajMahal'
+        year: 'Apr 2025-Present',
+        title: 'Software Engineer',
+        organization: 'Verkada',
+        location: 'San Mateo, CA',
+        type: 'work',
+        description: 'Building the next generation of data infrastructure.',
+        country: 'usa',
+        monument: 'goldenGate'
     },
     {
-        year: '2018-2020',
-        title: 'Software Engineer II',
-        organization: 'Samsung Research',
-        location: 'Noida, India',
+        year: '2022-2025',
+        title: 'Software Engineer',
+        organization: 'Eightfold AI',
+        location: 'Santa Clara, CA',
         type: 'work',
-        description: 'Built data systems powering Samsung TVs worldwide, handling multi-terabyte data pipelines for streaming platforms.',
-        country: 'india',
-        monument: 'indiaGate'
+        description: 'Led infrastructure initiatives that improved system performance and reliability at scale.',
+        country: 'usa',
+        monument: 'goldenGate'
     },
     {
         year: '2021-2022',
@@ -39,24 +39,24 @@ const careerData = [
         monument: 'lighthouse'
     },
     {
-        year: '2022-2025',
-        title: 'Senior Software Engineer',
-        organization: 'Eightfold AI',
-        location: 'Santa Clara, CA',
+        year: '2018-2020',
+        title: 'Software Engineer',
+        organization: 'Samsung Research',
+        location: 'Noida, India',
         type: 'work',
-        description: 'Led infrastructure initiatives that improved system performance and reliability at scale.',
-        country: 'usa',
-        monument: 'goldenGate'
+        description: 'Built data systems powering Samsung TVs worldwide, handling multi-terabyte data pipelines for streaming platforms.',
+        country: 'india',
+        monument: 'indiaGate'
     },
     {
-        year: 'Apr 2025-Present',
-        title: 'Senior Software Engineer',
-        organization: 'Verkada',
-        location: 'San Mateo, CA',
-        type: 'work',
-        description: 'Building the next generation of data infrastructure.',
-        country: 'usa',
-        monument: 'goldenGate'
+        year: '2014-2018',
+        title: 'Bachelor of Technology',
+        organization: 'IIIT Allahabad',
+        location: 'Allahabad, India',
+        type: 'education',
+        description: 'Laid the foundation for my journey into computer science and research.',
+        country: 'india',
+        monument: 'tajMahal'
     }
 ];
 
