@@ -1,1 +1,0 @@
-import{j as a,I as r}from"./index-B2mK826t.js";import"./vendor-Bebjssv0.js";import"./ui-D05ld0mp.js";const m=()=>a.jsx("div",{className:"photography-page",children:a.jsx("div",{className:"gallery-grid",children:r.map(s=>a.jsx("div",{className:"gallery-item",children:a.jsx("img",{src:s.src,alt:s.alt,className:"gallery-img",loading:"lazy"})},s.id))})});export{m as default};
