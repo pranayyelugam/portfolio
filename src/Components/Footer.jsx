@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
-import { AiOutlineFilePdf, AiFillGithub } from 'react-icons/ai';
+import { AiOutlineFilePdf, AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
 
-import { GrMail } from 'react-icons/gr';
 import { SiGooglescholar } from 'react-icons/si';
 
 
@@ -19,7 +18,7 @@ export default class Footer extends Component {
                 </div>
 
                 <div>
-                    <a href="mailto:ypranayraj@gmail.com" aria-label="Email Me"><GrMail size="25px" /></a>
+                    <a href="https://www.linkedin.com/in/pranay-yelugam-b27838121/" aria-label="LinkedIn Profile"><AiFillLinkedin size="25px" /></a>
                 </div>
 
                 <div>
