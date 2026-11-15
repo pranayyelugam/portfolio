@@ -181,9 +181,9 @@
    ============================================ */
 .theme-professional {
   .header-row {
-    background: var(--bg-secondary);
-    border-bottom: 1px solid #e2e8f0;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background: var(--glass-bg);
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: none;
   }
 
   .nav-bar .nav-mem, 

@@ -4,6 +4,7 @@ import Content from './Components/Content'; // Keep Home eager for LCP
 
 import Header from './Components/Header';
 import Footer from './Components/Footer';
+import LossLandscape from './Components/LossLandscape';
 import { ThemeProvider } from './context/ThemeContext';
 import { lazyWithPreload } from './utils/lazyWithPreload';
 
@@ -46,6 +47,7 @@ function App() {
       <div className="App">
         <Router basename="/">
           <div className="app-layout">
+            <LossLandscape />
             <Header />
             <main className="dynamic-area">
               <div className="site-content">
