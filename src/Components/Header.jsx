@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import classNames from 'classnames';
 import {
     Link,
     useRouteMatch
@@ -76,15 +75,9 @@ const Header = () => {
 };
 
 const CustomLink = ({ to, label, ...rest }) => {
-    let match = useRouteMatch({
-        path: to,
-        exact: true
-    });
-    let menuItemClass = classNames('nav-mem');
-    let menuActiveItemClass = classNames('active-menu-item');
-
+    const match = useRouteMatch({ path: to, exact: true });
     return (
-        <Link className={match ? menuActiveItemClass : menuItemClass} to={to} {...rest}>{label}</Link>
+        <Link className={match ? 'active-menu-item' : 'nav-mem'} to={to} {...rest}>{label}</Link>
     );
 };
 

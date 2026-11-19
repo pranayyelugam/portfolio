@@ -95,7 +95,7 @@ export const createGLRenderer = (canvas) => {
   let gl;
   try {
     gl = canvas.getContext('webgl2', { antialias: true, alpha: true, premultipliedAlpha: true, depth: true, powerPreference: 'low-power' });
-  } catch (e) {
+  } catch {
     return null;
   }
   if (!gl) return null;

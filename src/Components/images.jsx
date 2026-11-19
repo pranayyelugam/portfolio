@@ -266,8 +266,6 @@ const Images = [
         description: "",
         tags: ['Photography', '2023']
     },
-
-,
     {
         id: 231, 
         src: Gallery31,

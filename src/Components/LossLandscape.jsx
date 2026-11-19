@@ -69,7 +69,7 @@ const INTERACTIVE =
 const readHashState = () => {
   try {
     return decodeState(window.location.hash);
-  } catch (e) {
+  } catch {
     return null;
   }
 };
@@ -110,7 +110,7 @@ const LossLandscape = () => {
     const coarse = window.matchMedia('(pointer: coarse)').matches;
     let glr = createGLRenderer(glCanvas);
     if (!glr) glCanvas.style.display = 'none';
-    const useGL = () => !!glr && !glr.lost;
+    const glActive = () => !!glr && !glr.lost;
 
     let W = 0, H = 0, S = 1, dpr = 1;
     const f = createField();
@@ -184,7 +184,7 @@ const LossLandscape = () => {
           zGrid[n] = zBase[n] + sampleSculpt(f, gx0 + i * gdx, gy0 + j * gdy);
         }
       }
-      if (useGL()) {
+      if (glActive()) {
         const fc = FX + 1;
         for (let j = 0; j <= FY; j++) {
           for (let i = 0; i <= FX; i++) {
@@ -236,7 +236,7 @@ const LossLandscape = () => {
       for (let j = 0; j <= NY; j++) {
         for (let i = 0; i <= NX; i++) zBase[j * cols + i] = baseLoss(gx0 + i * gdx, gy0 + j * gdy);
       }
-      if (useGL()) {
+      if (glActive()) {
         const fx = Math.min(FINE_CAP, NX * FINE), fy = Math.min(FINE_CAP, NY * FINE);
         if (fx !== FX || fy !== FY) {
           FX = fx; FY = fy;
@@ -565,7 +565,7 @@ const LossLandscape = () => {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, W, H);
       projectGrid();
-      if (!(useGL() && drawMeshGL())) {
+      if (!(glActive() && drawMeshGL())) {
         if (glr && glr.lost) {
           // Context lost mid-session: switch to the 2D mesh for good.
           glCanvas.style.display = 'none';
@@ -893,7 +893,7 @@ const LossLandscape = () => {
     if (!hash && !window.location.hash.startsWith('#lab')) return;
     try {
       window.history.replaceState(window.history.state, '', `${pathname}${search}${hash}`);
-    } catch (e) {
+    } catch {
       // ignore: some embedded browsers forbid replaceState
     }
   }, [surface, algos, lrMul, speed, noise, slice]);
@@ -932,7 +932,7 @@ const LossLandscape = () => {
     try {
       await navigator.clipboard.writeText(window.location.href);
       setCopied('Link copied');
-    } catch (e) {
+    } catch {
       setCopied('Copy failed: use the address bar');
     }
     setTimeout(() => setCopied(''), 1800);

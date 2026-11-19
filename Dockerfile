@@ -1,5 +1,5 @@
 # Build stage
-FROM node:20-alpine as build
+FROM node:20-alpine AS build
 
 WORKDIR /app
 
@@ -11,7 +11,7 @@ RUN npm run build
 
 # Production stage
 FROM nginx:alpine
-# Copy to /portfolio subdirectory so serving matches the 'base' config
-COPY --from=build /app/dist /usr/share/nginx/html/portfolio
+# Vite builds with base '/', so serve from the web root
+COPY --from=build /app/dist /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]

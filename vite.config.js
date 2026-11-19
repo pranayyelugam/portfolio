@@ -36,7 +36,19 @@ export default defineConfig({
         enabled: true
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,webp,jpg}']
+        // Precache only the app shell; photos are cached when first viewed, so a first
+        // visit doesn't download the whole gallery in the background.
+        globPatterns: ['**/*.{js,css,html,ico,svg}', '*.png'],
+        runtimeCaching: [
+          {
+            urlPattern: ({ request }) => request.destination === 'image',
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'images',
+              expiration: { maxEntries: 120, maxAgeSeconds: 60 * 60 * 24 * 30 },
+            },
+          },
+        ],
       }
     })
   ],
@@ -46,8 +58,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom', 'react-router-dom'],
-
-          ui: ['react-icons', 'classnames']
+          ui: ['react-icons']
         }
       }
     }

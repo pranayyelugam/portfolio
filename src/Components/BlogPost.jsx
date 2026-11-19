@@ -57,7 +57,7 @@ const BlogPost = () => {
                     remarkPlugins={[remarkMath, remarkGfm]}
                     rehypePlugins={[rehypeKatex]}
                     components={{
-                        img: ({node, ...props}) => <img {...props} className="blog-image" loading="lazy" />
+                        img: ({ node: _node, ...props }) => <img {...props} className="blog-image" loading="lazy" />
                     }}
                 >
                     {content}
