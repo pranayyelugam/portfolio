@@ -4,7 +4,6 @@ import Content from './Components/Content'; // Keep Home eager for LCP
 
 import Header from './Components/Header';
 import Footer from './Components/Footer';
-import LossLandscape from './Components/LossLandscape';
 import { ThemeProvider } from './context/ThemeContext';
 import { lazyWithPreload } from './utils/lazyWithPreload';
 
@@ -15,7 +14,6 @@ import {
 } from "react-router-dom";
 
 // Lazy load components
-// Lazy load components
 const PublicationComponenet = lazy(() => import('./Components/Publications'));
 const ProjectsComponent = lazy(() => import('./Components/Projects'));
 const BlogComponent = lazy(() => import('./Components/Blog'));
@@ -23,6 +21,9 @@ const BlogPostComponent = lazy(() => import('./Components/BlogPost'));
 
 // Use lazyWithPreload for Photography page to enable intent-based prefetching
 const PhotographyContainer = lazyWithPreload(() => import('./Components/Photography'));
+
+// Home-page background: kept off the critical path so it never delays LCP
+const LossLandscape = lazy(() => import('./Components/LossLandscape'));
 
 // Simple loading spinner
 const LoadingSpinner = () => (
@@ -47,7 +48,11 @@ function App() {
       <div className="App">
         <Router basename="/">
           <div className="app-layout">
-            <LossLandscape />
+            <Route exact path="/">
+              <Suspense fallback={null}>
+                <LossLandscape />
+              </Suspense>
+            </Route>
             <Header />
             <main className="dynamic-area">
               <div className="site-content">

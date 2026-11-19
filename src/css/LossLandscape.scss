@@ -1,8 +1,11 @@
 .ll-canvas {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
   z-index: -1;
   pointer-events: none;
+  opacity: 0; // the engine sets the per-theme opacity once colors are read: fades in
+  transition: opacity 0.9s ease;
 }
 
 .ll-panel {
@@ -21,6 +24,9 @@
   font-family: 'Inter', sans-serif;
   font-size: 0.78rem;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+  max-height: calc(100vh - 100px); // stay clear of the sticky header
+  overflow-y: auto;
+  overscroll-behavior: contain;
 
   button {
     font-family: inherit;
@@ -65,9 +71,46 @@
     border-radius: 6px;
     transition: background 0.15s ease, border-color 0.15s ease;
 
-    &:hover {
+    &:hover:not(:disabled) {
       border-color: var(--accent-color);
     }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: default;
+    }
+  }
+
+  .ll-share {
+    flex: none;
+    width: 100%;
+    padding: 7px 4px;
+  }
+
+  .ll-curve {
+    margin: 0;
+
+    canvas {
+      display: block;
+      width: 100%;
+      height: 72px;
+    }
+
+    figcaption {
+      margin-top: 2px;
+      color: var(--text-secondary);
+      font-size: 0.66rem;
+    }
+  }
+
+  .ll-sculpt {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .ll-label {
+    color: var(--text-secondary);
   }
 
   .ll-seg.on {
@@ -162,5 +205,23 @@
     right: 8px;
     bottom: 8px;
     width: 240px;
+
+    // collapsed: a small pill in the corner so it doesn't sit on the bio
+    &:not(.open) {
+      width: auto;
+
+      .ll-head {
+        gap: 8px;
+        padding: 7px 11px;
+        font-size: 0.64rem;
+      }
+    }
+  }
+}
+
+@media print {
+  .ll-canvas,
+  .ll-panel {
+    display: none;
   }
 }
