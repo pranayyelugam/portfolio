@@ -33,6 +33,9 @@ body.theme-futuristic {
   --glass-bg: rgba(18, 18, 26, 0.85);
   --glass-border: rgba(255, 107, 53, 0.2);
   --glass-blur: 12px;
+  // Solid-enough panels for copy that sits over the loss-landscape mesh
+  --card-bg: rgba(18, 18, 26, 0.88);
+  --card-border: rgba(255, 107, 53, 0.2);
   --heading-font: 'Inter', sans-serif;
   --body-font: 'Inter', sans-serif;
 
@@ -77,6 +80,8 @@ body.theme-professional {
   --glass-bg: rgba(255, 255, 255, 0.95);
   --glass-border: rgba(26, 54, 93, 0.15);
   --glass-blur: 8px;
+  --card-bg: rgba(255, 255, 255, 0.86);
+  --card-border: rgba(0, 0, 0, 0.06);
   --heading-font: 'Source Serif 4', Georgia, serif;
   --body-font: 'Inter', -apple-system, sans-serif;
 
@@ -147,6 +152,7 @@ a {
   transition: all var(--transition-fast);
   white-space: nowrap;
   cursor: pointer;
+  line-height: 1.5;
 
   &:hover {
     border-color: var(--accent-color);
@@ -154,11 +160,37 @@ a {
     transform: translateY(-1px);
   }
 
+  &:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+  }
+
   &.active {
     background: var(--accent-color);
     color: #ffffff; // Always white text on active pill
     border-color: var(--accent-color);
     text-shadow: none;
+  }
+}
+
+/* ============================================
+   PAGE HEADINGS (Publications, Projects)
+   ============================================ */
+.page-head {
+  margin: 0 0 var(--spacing-lg);
+
+  h1 {
+    margin: 0 0 0.35rem;
+    font-family: var(--heading-font);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
   }
 }
 

@@ -8,6 +8,9 @@ import ThemeToggle from './ThemeToggle';
 import Images from './images';
 import '../css/Header.scss';
 
+// Show Blog in the nav only once there is at least one post in src/posts
+const HAS_POSTS = Object.keys(import.meta.glob('/src/posts/*.md')).length > 0;
+
 const preloadImages = (images) => {
     images.forEach((image) => {
         const img = new Image();
@@ -60,7 +63,7 @@ const Header = () => {
                             preloadImages(Images);
                         }} 
                     /></li>
-                    <li onClick={closeMenu}><CustomLink to="/blog" label="Blog" /></li>
+                    {HAS_POSTS && <li onClick={closeMenu}><CustomLink to="/blog" label="Blog" /></li>}
                 </ul>
                 
                 {/* Desktop Theme Toggle position */}

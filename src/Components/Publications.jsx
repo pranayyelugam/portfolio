@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import '../css/Publications.scss'
 
+// Author lists spell the name differently per venue; bold whichever form appears
+const SELF = /(Pranay Kumar Yelugam|Yelugam Pranay Kumar)/;
+const Authors = ({ text }) => text.split(SELF).map((part, i) =>
+    SELF.test(part) ? <strong key={i} className="pub-self">{part}</strong> : part
+);
+
 const PublicationsComponent = () => {
     const [selectedTag, setSelectedTag] = useState(null);
 
@@ -42,6 +48,10 @@ const PublicationsComponent = () => {
 
     return (
         <div className="publications">
+            <header className="page-head">
+                <h1>Publications</h1>
+                <p>Peer-reviewed papers, most recent first.</p>
+            </header>
             <ul className="pub-list">
                 {visiblePublications.map((publication, index) => {
                     return (
@@ -50,18 +60,20 @@ const PublicationsComponent = () => {
                                 {publication.title}
                             </a>
                             <p className="pub-info">
-                                {publication.authors}. <span className="pub-conf">{publication.conference}</span>
+                                <Authors text={publication.authors} />. <span className="pub-conf">{publication.conference}</span>
                             </p>
                             {publication.tags && (
                                 <div className="tag-container" style={{ marginTop: '0.5rem' }}>
                                     {publication.tags.map((tag, i) => (
-                                        <span 
-                                            key={i} 
+                                        <button
+                                            type="button"
+                                            key={i}
                                             className={`tag-pill ${selectedTag === tag ? 'active' : ''}`}
                                             onClick={() => toggleTag(tag)}
+                                            aria-pressed={selectedTag === tag}
                                         >
                                             {tag}
-                                        </span>
+                                        </button>
                                     ))}
                                 </div>
                             )}

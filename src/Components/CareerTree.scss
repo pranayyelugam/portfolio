@@ -1,446 +1,200 @@
+// Single-column timeline: a rail on the left (country marks where a move
+// happened) and one card per role. Same layout at every width.
 .career-tree {
-    padding: var(--spacing-lg);
-    max-width: 1200px; /* Increased max-width for 3-column layout */
+    max-width: 760px;
     margin: var(--spacing-xl) auto;
+    padding: 0 var(--spacing-lg) var(--spacing-lg);
 
     .career-title {
         text-align: center;
         font-size: 1.75rem;
-        margin-bottom: var(--spacing-xl);
+        margin: 0 0 var(--spacing-lg);
         color: var(--text-primary);
     }
 
     .career-timeline {
         position: relative;
-        /* The main vertical line is now the "center" of the timeline */
-        /* We can use the ::before pseudo-element on the timeline relative to the center column */
+        list-style: none;
+        margin: 0;
+        padding: 0;
     }
 
     .career-node {
         display: flex;
-        align-items: stretch; /* Stretch to fill height */
+        gap: var(--spacing-md);
         margin-bottom: var(--spacing-md);
+
+        &:last-child {
+            margin-bottom: 0;
+
+            .node-rail::before {
+                bottom: 50%;
+            }
+        }
+    }
+
+    .node-rail {
+        width: 40px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
         position: relative;
-        width: 100%;
 
-        /* Left Column: Monument */
-        .node-left {
-            flex: 1;
-            padding-right: var(--spacing-lg);
-            display: flex;
-            align-items: flex-start;
-            justify-content: flex-end; /* Align monuments to the right (near the center) */
-
-            .monument-container {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding-top: var(--spacing-md);
-            }
-
-            .monument-icon {
-                width: 100px;
-                height: auto;
-                opacity: 0.6;
-                filter: grayscale(100%);
-                mix-blend-mode: multiply;
-                transition: opacity 0.3s ease, transform 0.3s ease;
-            }
+        // rail segment: runs through the gap to the next row, breaks at a flag
+        &::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: calc(-1 * var(--spacing-md));
+            width: 2px;
+            transform: translateX(-50%);
+            background: var(--glass-border);
         }
 
-        /* Center Column: Line and Icons */
-        .node-center {
-            width: 80px;
-            flex-shrink: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            
-            /* Continuous Line */
-            &::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                /* Stop exact at next node's relative top (100% + margin) */
-                /* Actually, simplest is just calc(100% + var(--spacing-md)) relative to content? */
-                /* NO, node-center height varies. */
-                /* position: absolute; top: 0; bottom: -margin; works if parent is relative and full height. */
-                bottom: calc(-1 * var(--spacing-md)); 
-                left: 50%;
-                transform: translateX(-50%);
-                width: 2px;
-                background: var(--glass-border);
-                z-index: 0;
-            }
-
-            /* Break line for country icon */
-            &.has-country::before {
-                top: 55px; /* Gap for icon */
-            }
-
-            .country-icon {
-                width: 50px;
-                height: auto;
-                opacity: 1;
-                filter: grayscale(100%);
-                mix-blend-mode: normal;
-                transition: opacity 0.2s ease;
-                margin-bottom: var(--spacing-sm);
-                z-index: 2;
-                background: transparent; /* Remove masking box */
-                padding: 4px;
-            }
-            
-            .node-connector {
-                position: relative;
-                z-index: 2;
-                margin-top: var(--spacing-sm);
-                
-                .node-dot {
-                    display: none; /* Removed as requested */
-                }
-            }
+        &.has-country::before {
+            top: 58px;
         }
 
-        /* Right Column: Content (Text) */
-        .node-right {
-            flex: 1;
-            padding-left: var(--spacing-lg);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            text-align: left;
+        .country-icon {
+            width: 36px;
+            height: auto;
+            margin-top: 14px;
+            filter: grayscale(100%);
+            opacity: 0.75;
         }
+    }
 
-        /* Hover Effects */
+    .node-content {
+        flex: 1;
+        min-width: 0;
+        padding: var(--spacing-md) 1.25rem;
+        border: 1px solid var(--glass-border);
+        border-radius: 8px;
+        background: var(--glass-bg);
+        transition: border-color 0.2s ease;
+
         &:hover {
-            .country-icon {
-                opacity: 1;
-            }
-            
-            .monument-icon {
-                opacity: 0.9;
-                /* Removed transform scale to prevent stacking context issues with mix-blend-mode */
-            }
-            
-            .node-dot {
-                background: var(--accent-color);
-                box-shadow: 0 0 15px var(--accent-glow);
-            }
-        }
-
-        /* Content Styling */
-        .node-content {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border); // Keeping border for career cards as they are distinct items, or should I remove it too? 
-            /* Let's keep the career cards slightly distinctive but minimal */
-            padding: var(--spacing-md);
-            border-radius: 8px; /* Consistent radius */
-            transition: border-color 0.2s ease;
-            position: relative;
-            width: 100%;
-
-            &:hover {
-                border-color: var(--accent-color);
-            }
-
-            .node-header {
-                display: flex;
-                justify-content: space-between; /* Changed from flex-end to space-between */
-                align-items: center;
-                gap: 8px;
-                margin-bottom: var(--spacing-sm);
-                flex-wrap: wrap;
-            }
-
-            .node-year {
-                font-size: 0.8rem;
-                font-weight: 600;
-                color: var(--accent-color);
-                padding: 2px 8px;
-                background: rgba(255, 107, 53, 0.1);
-                border-radius: 4px;
-            }
-
-            .node-location {
-                font-size: 0.75rem;
-                color: var(--text-secondary);
-            }
-
-            .node-title {
-                margin: 0 0 2px 0;
-                font-size: 1.1rem;
-                color: var(--text-primary);
-            }
-
-            .node-org {
-                margin: 0 0 var(--spacing-sm) 0;
-                font-size: 0.95rem;
-                color: var(--text-secondary);
-                font-weight: 500;
-            }
-
-            .node-description {
-                margin: 0;
-                font-size: 0.9rem;
-                color: var(--text-secondary);
-                line-height: 1.5;
-            }
-        }
-
-        /* Color Coding */
-        &.education .node-dot {
             border-color: var(--accent-color);
         }
-
-        &.work .node-dot {
-            border-color: #22c55e;
-        }
     }
 
-    /* Last item adjustments to stop the line */
-    .career-node:last-child {
-        .node-center::before {
-            display: none; /* Hide dangling line for last item */
-        }
+    .monument-icon {
+        float: right;
+        width: 64px;
+        height: auto;
+        margin: 0 0 6px 12px;
+        filter: grayscale(100%);
+        opacity: 0.55;
     }
 
-    /* Alternating Layout (Zig-Zag) */
-    .career-node.reverse {
-        flex-direction: row-reverse;
-
-        /* Left Column (now on right visually) - Monument */
-        .node-left {
-            padding-right: 0;
-            padding-left: var(--spacing-lg);
-            justify-content: flex-start; /* Align monument to left (towards center) */
-        }
-
-        /* Right Column (now on left visually) - Content */
-        .node-right {
-            padding-left: 0;
-            padding-right: var(--spacing-lg);
-            text-align: right;
-            
-
-
-            .node-content {
-                /* Ensure text alignment propagates if overridden */
-                text-align: right;
-            }
-
-            .node-header {
-                /* Flip order for right alignment */
-                flex-direction: row-reverse; 
-            }
-        }
-    }
-}
-
-/* Futuristic theme specific adjustments */
-.theme-futuristic .career-tree {
-    .node-content {
-        clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
-        background: rgba(18, 18, 26, 0.6);
-        border: 1px solid var(--glass-border);
+    .node-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 6px;
     }
 
-    /* Increased specificity to override base styles */
-    .career-node {
-        .country-icon, .monument-icon, .monument-icon-mobile {
-            filter: grayscale(100%) invert(1) brightness(1.2);
-            opacity: 0.9;
-            mix-blend-mode: screen; /* Blends black background (inverted white) into dark theme */
-        }
+    .node-year {
+        font-size: 0.78rem;
+        font-weight: 600;
+        font-variant-numeric: tabular-nums;
+        color: var(--accent-color);
+        padding: 2px 8px;
+        border-radius: 4px;
+        background: rgba(255, 107, 53, 0.1);
     }
-    
-    .career-node:hover {
-        .country-icon, .monument-icon, .monument-icon-mobile {
-            opacity: 0.8;
-        }
+
+    .node-location {
+        font-size: 0.78rem;
+        color: var(--text-secondary);
+    }
+
+    .node-title {
+        margin: 0;
+        font-size: 1.1rem;
+        color: var(--text-primary);
+    }
+
+    .node-org {
+        margin: 0 0 var(--spacing-sm);
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+    }
+
+    .node-description {
+        margin: 0;
+        font-size: 0.92rem;
+        line-height: 1.55;
+        color: var(--text-secondary);
     }
 }
 
-/* Default state for mobile monument: Hidden on Desktop */
-.mobile-monument-container {
-    display: none;
-}
-
-/* Professional theme adjustments */
 .theme-professional .career-tree {
     .node-content {
-        background: transparent;
-        border: none;
-        box-shadow: none; /* Make career text blend in too if desired, or keep as cards? */
-        /* User said "content boxes" meaning top area. For career tree, usually cards are better. 
-           But let's stick to the cleaner look requested globally: minimal borders. */
-        border-radius: 8px;
-        text-align: left;
-    }
-    
-    /* Let's try to keep the cards but make them very subtle */
-    .node-content {
-         background: rgba(255, 255, 255, 0.5);
-         border: 1px solid rgba(0,0,0,0.05);
-         padding: var(--spacing-md);
+        background: var(--card-bg);
+        border-color: var(--card-border);
     }
 
     .node-year {
         background: rgba(26, 54, 93, 0.08);
-        color: var(--accent-color);
-    }
-    
-    .country-icon, .monument-icon {
-        filter: grayscale(100%);
-        opacity: 1; /* Opaque to mask line */
-        mix-blend-mode: normal; 
     }
 }
 
-/* Mobile Responsiveness */
+.theme-futuristic .career-tree {
+    .node-content {
+        clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+        background: var(--card-bg);
+    }
+
+    .country-icon,
+    .monument-icon {
+        filter: invert(1);
+    }
+
+    .monument-icon {
+        opacity: 0.7;
+    }
+}
+
 @media (max-width: 768px) {
     .career-tree {
-        padding: var(--spacing-sm);
-        
-        /* Explicitly target .reverse to override desktop specificity */
-        /* Shared Timeline Container for Mobile */
-        .career-timeline {
-            position: relative;
-            
-            /* THE CONTINUOUS LINE */
-            &::before {
-                content: '';
-                position: absolute;
-                left: 19px; /* Center of 40px .node-center (approx) */
-                top: 2.5rem; /* Start below the first India icon */
-                bottom: 0;
-                width: 2px;
-                background: var(--glass-border);
-                z-index: 0;
+        padding: 0 var(--spacing-sm) var(--spacing-md);
+
+        .career-title {
+            font-size: 1.5rem;
+        }
+
+        .career-node {
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .node-rail {
+            width: 32px;
+
+            .country-icon {
+                width: 30px;
             }
         }
 
-        /* Explicitly target .reverse to override desktop specificity */
-        .career-node, .career-node.reverse {
-            flex-direction: row; /* Side-by-side: Timeline + Content */
-            align-items: stretch;
-            margin-left: 0;
-            padding-left: 0;
-            border-left: none;
-            
-            /* Clean spacing between cards */
-            margin-bottom: var(--spacing-md);
-            padding-bottom: 0;
-            overflow: visible;
-
-            .node-left {
-                display: none; /* Hide external monument on mobile */
-            }
-            
-            .node-center {
-                display: flex; /* Show timeline line and icons */
-                width: 40px;
-                flex-shrink: 0;
-                flex-direction: column;
-                align-items: center;
-                margin-right: var(--spacing-sm);
-                position: relative;
-                z-index: 1; /* Sit above the shared line */
-                
-                /* NO PER-NODE LINE - Shared line handles it */
-                &::before {
-                    display: none;
-                }
-
-                .country-icon {
-                    width: 35px; /* Slightly smaller for mobile */
-                    padding: 0; 
-                    margin-top: 0; /* Align to top */
-                    margin-bottom: 4px;
-                    position: relative;
-                    z-index: 2; /* Sit on top */
-                    background: var(--bg-primary); /* Mask the line behind */
-                    border-radius: 4px;
-                    border: none;
-                }
-
-                /* Remove Has-Country specific masking since we use bg color now */
-                &.has-country::before {
-                    display: none;
-                }
-            }
-            
-            /* No first-child override needed for line, just maybe start offset */
-            &:first-child .node-center::before {
-                display: none;
-            }
-            
-            &:first-child .node-center.has-country::before {
-                display: none;
-            }
-
-            .node-right {
-                flex: 1; /* Take remaining space */
-                padding-left: 0;
-                padding-right: 0;
-                padding-bottom: 0;
-            }
-
-            .node-content {
-                text-align: left;
-                position: relative;
-                margin-bottom: 0; /* Parent handles spacing now */
-                
-                .node-header {
-                    justify-content: flex-start;
-                    flex-wrap: wrap;
-                    gap: 8px; /* Ensure space between Year and Location */
-                    
-                    /* Force them to be inline if possible */
-                    .node-year, .node-location {
-                        display: inline-block;
-                    }
-                }
-                
-                .mobile-monument-container {
-                    display: block; 
-                    float: right;
-                    margin-left: 10px;
-                    margin-bottom: 5px;
-                    
-                    .monument-icon-mobile {
-                        width: 60px; 
-                        height: auto;
-                        opacity: 0.7; 
-                        /* mix-blend-mode: multiply; RE MOVED to let theme handle it */
-                    }
-                }
-            }
+        .career-node .node-rail::before {
+            bottom: calc(-1 * var(--spacing-sm));
         }
 
-        /* Reset specific reverse properties */
-        .career-node.reverse {
-            .node-right {
-                text-align: left;
-                padding-right: 0;
-                
-                .node-header {
-                    flex-direction: row;
-                    justify-content: flex-start;
-                    gap: 8px; /* Ensure consistent gap */
-                }
+        .career-node:last-child .node-rail::before {
+            bottom: 50%;
+        }
 
-                .node-content {
-                    text-align: left;
-                }
-            }
+        .node-content {
+            padding: 0.85rem 1rem;
+        }
 
-            .node-left {
-                padding-left: 0;
-                padding-right: 0;
-                justify-content: center;
-            }
+        .monument-icon {
+            width: 52px;
         }
     }
 }
