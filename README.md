@@ -1,35 +1,48 @@
-Personal website of Pranay Yelugam.
+# pranayyelugam.com
 
-## 🚀 Performance & Optimizations
+Personal website of Pranay Yelugam, built with React 18 and Vite, deployed to GitHub Pages.
 
+## Highlights
 
-- **Code Splitting**: Heavy components (e.g., Photography) are lazy-loaded to keep the initial bundle size small.
-- **Route-Based Preloading**: Critical assets for upcoming routes can be preloaded on hover.
-- **Zero-Layout Shift**: Strict dimensioning and layout reservation ensure the UI never "jumps" during loading.
+- **Optimizer lab background** (home page only): an interactive loss landscape with GD, Momentum,
+  Nesterov, RMSProp and Adam racing to the minimum. WebGL2 renderer with a Canvas 2D fallback,
+  live loss curves, SGD noise, terrain sculpting (shift-drag), and shareable setups via the URL.
+  Lazy-loaded so it never delays first paint, and respects `prefers-reduced-motion`.
+- **Two themes**: light ("professional") and dark ("futuristic"), toggled in the header.
+- **Route-level code splitting** with hover preloading for the photography page.
+- **Offline support** through a Workbox service worker (`vite-plugin-pwa`).
 
-## 🛠️ Local Development
+## Development
 
-1. **Install Dependencies**
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+npm start          # dev server at http://localhost:5173
+npm run lint       # ESLint (flat config, React hooks rules)
+npm run build      # production build into dist/
+npm run preview    # serve the production build locally
+```
 
-2. **Start Dev Server**
-   ```bash
-   npm start
-   ```
-   Runs the app in development mode at `http://localhost:5173`.
+## Project layout
 
-## 📦 Deployment
+```
+src/
+  App.jsx                      routes and lazy loading
+  Components/                  pages and UI (Content, CareerTree, Projects, ...)
+  Components/LossLandscape.jsx optimizer lab: engine, input, panel
+  Components/lossLandscape/    math.js (surfaces, optimizers, URL state), glRenderer.js (WebGL2)
+  context/ThemeContext.jsx     theme state
+  styles/global.scss           design tokens for both themes
+  posts/                       blog posts as Markdown with front matter
+```
 
-This project uses **GitHub Pages** for hosting.
+The Blog link appears in the nav automatically once `src/posts/` contains a post.
 
-To deploy a new version:
+## Deployment
 
 ```bash
 npm run deploy
 ```
 
-This command will automatically:
-1.  Run `npm run build` to generate the production optimized bundle in `/dist`.
-2.  Push the contents of `/dist` to the `gh-pages` branch.
+Builds the site and pushes `dist/` to the `gh-pages` branch. `public/404.html` and the script in
+`index.html` restore deep links (e.g. `/projects`) on GitHub Pages. A `Dockerfile` (nginx) is also
+included for container hosting.
