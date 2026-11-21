@@ -1,0 +1,1 @@
+import{j as a,I as r}from"./index-Dh6MuQU8.js";import"./vendor-Bf34xBad.js";import"./ui-CsbV3Q3E.js";const m=()=>a.jsx("div",{className:"photography-page",children:a.jsx("div",{className:"gallery-grid",children:r.map(s=>a.jsx("div",{className:"gallery-item",children:a.jsx("img",{src:s.src,alt:s.alt,className:"gallery-img",loading:"lazy"})},s.id))})});export{m as default};
